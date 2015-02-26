@@ -17,9 +17,6 @@ function helloBg() {
 		'top': $('.hello').offset().top+'px',
 		'height': $('.hello').outerHeight()+'px'
 	});
-	$('.hellobg span').css({
-		'margin-right': -790+($('.hello').offset().top*0.531)+'px'
-	});
 }
 function processUl() {
 	var max = 0;
@@ -222,16 +219,6 @@ function desktop() {
 		return false;
 	});
 }
-function mobileViewport() {
-	/*if ( window.innerWidth() > 999 ) {
-		var viewport = document.querySelector("meta[name=viewport]");
-		viewport.setAttribute('content', 'width=1000, user-scalable=yes');
-	}
-	else {
-		var viewport = document.querySelector("meta[name=viewport]");
-		viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=yes');
-	}*/
-}
 function contactsWidth() {
 	if ( $(window).width() >= 1400 ) {
 		$('.inner .contacts li').css({
@@ -249,9 +236,26 @@ function contactsWidth() {
 		});
 	}
 }
+function benefitsNum() {
+	$('.inner .benefits ul li').each(function() {
+		$(this).find('p').css({
+			'margin-left': $(this).find('h5').width()+10+'px'
+		});
+	});
+}
+/*function mobileViewport() {
+	if ( screen.width >= 1000 ) {
+		var viewport = document.querySelector("meta[name=viewport]");
+		viewport.setAttribute('content', 'width=1000, user-scalable=yes');
+	}
+	else {
+		var viewport = document.querySelector("meta[name=viewport]");
+		viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=yes');
+	}
+}
 window.addEventListener('orientationchange', function() {
 	mobileViewport();
-}, false);
+}, false);*/
 $(document).ready(function() {
 	$(window).bind('scroll', function() {
 		$('.animate').each(function() {
@@ -267,13 +271,13 @@ $(document).ready(function() {
 			'opacity': '0.15'
 		})
 	}
-	/*if ( !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+	if ( !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 		$('body').addClass('desktop');
 	}
 	else {
 		$('body').addClass('mobile');
-		mobileViewport();
-	}*/
+		//mobileViewport();
+	}
 	if ( $('.clients').length > 0 ) {
 		var max = 0;
 		$('.clients > div > div > *').each(function() {
@@ -325,15 +329,11 @@ $(document).ready(function() {
 		desktop();
 	}
 	if ( $('.inner .hello').length > 0 ) {
-		$('.wrapper').append('<div class="hellobg"><span></span></div>');
+		$('.wrapper').append('<div class="hellobg"></div>');
 		helloBg();
 	}
 	if ( $('.inner .benefits').length > 0 ) {
-		$('.inner .benefits ul li').each(function() {
-			$(this).find('p').css({
-				'margin-left': $(this).find('h5').width()+10+'px'
-			});
-		});
+		benefitsNum();
 	}
 	if ( $('.gallery').length > 0 ) {
 		$('.inner .gallery > ul li a').bind('click', function() {
@@ -341,13 +341,19 @@ $(document).ready(function() {
 			return false;
 		}).filter(':first').click();
 	}
-	if ( $('.inner .contacts').length > 0 && $('.desktop').length > 0 ) {
+	if ( $('.inner .contacts').length > 0 && $(window).width() >= 1000 ) {
 		contactsWidth();
 	}
 	if ( $('.faq').length > 0 ) {
 		$('.faq').css({
 			'min-height': $('.faq').children('ul').outerHeight()+24+'px'
-		})
+		});
+	}
+	if ( $('.faq').length > 0 && $(window).width() < 1000 ) {
+		$('.mobile .inner .faq > div h3 span').bind('click', function() {
+			$(this).parent().parent().toggleClass('active');
+			return false;
+		});
 	}
 });
 $(window).resize(function() {
@@ -379,8 +385,11 @@ $(window).resize(function() {
 	if ( $('.inner .hello').length > 0 ) {
 		helloBg();
 	}
-	if ( $('.inner .contacts').length > 0 && $('.desktop').length > 0 ) {
+	if ( $('.inner .contacts').length > 0 && $(window).width() >= 1000 ) {
 		contactsWidth();
+	}
+	if ( $('.inner .benefits').length > 0 ) {
+		benefitsNum();
 	}
 });
 $(window).load(function() {
