@@ -6,8 +6,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 	<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="./css/animate.css">
 	<link rel="stylesheet" type="text/css" href="./css/uniform.css">
 	<script type="text/javascript" src="./js/jquery.js"></script>
+	<script type="text/javascript" src="./js/jquerymobile.js"></script>
+	<script type="text/javascript" src="./js/slides.js"></script>
 	<script type="text/javascript" src="./js/uniform.js"></script>
 	<script type="text/javascript" src="./js/dynamic.js"></script>
 </head>
@@ -41,33 +44,112 @@
 			</div>
 		</div>
 		<div class="menu">
-			<ul>
-				<li><a href="#">Перевозки</a></li>
-				<li><a href="#">Компания</a></li>
-				<li><a href="#">Вопрос-ответ</a></li>
-				<li><a href="#">Сотудничество</a></li>
-				<li><a href="#">Контакты</a></li>
-			</ul>
+			<div>
+				<img src="./img/menu_logo.png" width="115" height="39" class="logo" alt="">
+				<ul>
+					<li><a href="#">Перевозки</a></li>
+					<li><a href="#">Компания</a></li>
+					<li><a href="#">Вопрос-ответ</a></li>
+					<li><a href="#">Сотудничество</a></li>
+					<li><a href="#">Контакты</a></li>
+				</ul>
+				<div>
+					<span class="icon1"></span>
+					<span class="icon2"></span>
+					<span class="icon3"></span>
+					<span class="icon4"></span>
+				</div>
+			</div>
 		</div>
 		<div class="introduction">
 			<div class="slider">
-				<div>
-					<h5><span>Наши <strong>45</strong></span> автовозов<em>перевозят</em></h5>
-					<h6><span>более <strong>1200</strong></span> автомобилей <em>в месяц</em></h6>
+				<div class="container"></div>
+				<div class="temp">
+					<div>
+						<div class="animated slide1"></div>
+					</div>
+					<div>
+						<div class="animated slide2"></div>
+					</div>
+					<div>
+						<div class="animated slide3"></div>
+					</div>
+					<div>
+						<div class="animated slide4"></div>
+					</div>
 				</div>
-				<img src="./pic/slide1.png" width="1440" height="603" alt="">
 			</div>
 			<ul class="calculator">
 				<li class="count">
 					<h3>Расчет стоимости перевозки авто</h3>
 					<h5>Тип автомобиля:</h5>
 					<ul>
-						<li class="type1"></li>
-						<li class="type2"></li>
-						<li class="type3"></li>
-						<li class="type4"></li>
-						<li class="type5"></li>
-						<li class="type6"></li>
+						<li class="type1">
+							<div>
+								<h4>до <strong>L</strong> 4660, <strong>H</strong> 1530</h4>
+								<h6>Например:</h6>
+								<p>Nissan Almera</p>
+								<p>Hyundai i30</p>
+								<p>Kia Cerato</p>
+								<p>BMW 3 серии</p>
+								<p>Ford Focus</p>
+							</div>
+						</li>
+						<li class="type2">
+							<div>
+								<h4>до <strong>L</strong> 4660, <strong>H</strong> 1530</h4>
+								<h6>Например:</h6>
+								<p>Nissan Almera</p>
+								<p>Hyundai i30</p>
+								<p>Kia Cerato</p>
+								<p>BMW 3 серии</p>
+								<p>Ford Focus</p>
+							</div>
+						</li>
+						<li class="type3">
+							<div>
+								<h4>до <strong>L</strong> 4660, <strong>H</strong> 1530</h4>
+								<h6>Например:</h6>
+								<p>Nissan Almera</p>
+								<p>Hyundai i30</p>
+								<p>Kia Cerato</p>
+								<p>BMW 3 серии</p>
+								<p>Ford Focus</p>
+							</div>
+						</li>
+						<li class="type4">
+							<div>
+								<h4>до <strong>L</strong> 4660, <strong>H</strong> 1530</h4>
+								<h6>Например:</h6>
+								<p>Nissan Almera</p>
+								<p>Hyundai i30</p>
+								<p>Kia Cerato</p>
+								<p>BMW 3 серии</p>
+								<p>Ford Focus</p>
+							</div>
+						</li>
+						<li class="type5">
+							<div>
+								<h4>до <strong>L</strong> 4660, <strong>H</strong> 1530</h4>
+								<h6>Например:</h6>
+								<p>Nissan Almera</p>
+								<p>Hyundai i30</p>
+								<p>Kia Cerato</p>
+								<p>BMW 3 серии</p>
+								<p>Ford Focus</p>
+							</div>
+						</li>
+						<li class="type6">
+							<div>
+								<h4>до <strong>L</strong> 4660, <strong>H</strong> 1530</h4>
+								<h6>Например:</h6>
+								<p>Nissan Almera</p>
+								<p>Hyundai i30</p>
+								<p>Kia Cerato</p>
+								<p>BMW 3 серии</p>
+								<p>Ford Focus</p>
+							</div>
+						</li>
 					</ul>
 					<h5>Направление перевозки автомобиля:</h5>
 					<div class="from">
@@ -329,12 +411,72 @@
 			<h3>Расчет стоимости перевозки авто</h3>
 			<h5>Тип автомобиля:</h5>
 			<ul>
-				<li class="type1"></li>
-				<li class="type2"></li>
-				<li class="type3"></li>
-				<li class="type4"></li>
-				<li class="type5"></li>
-				<li class="type6"></li>
+				<li class="type1">
+					<div>
+						<h4>до <strong>L</strong> 4660, <strong>H</strong> 1530</h4>
+						<h6>Например:</h6>
+						<p>Nissan Almera</p>
+						<p>Hyundai i30</p>
+						<p>Kia Cerato</p>
+						<p>BMW 3 серии</p>
+						<p>Ford Focus</p>
+					</div>
+				</li>
+				<li class="type2">
+					<div>
+						<h4>до <strong>L</strong> 4660, <strong>H</strong> 1530</h4>
+						<h6>Например:</h6>
+						<p>Nissan Almera</p>
+						<p>Hyundai i30</p>
+						<p>Kia Cerato</p>
+						<p>BMW 3 серии</p>
+						<p>Ford Focus</p>
+					</div>
+				</li>
+				<li class="type3">
+					<div>
+						<h4>до <strong>L</strong> 4660, <strong>H</strong> 1530</h4>
+						<h6>Например:</h6>
+						<p>Nissan Almera</p>
+						<p>Hyundai i30</p>
+						<p>Kia Cerato</p>
+						<p>BMW 3 серии</p>
+						<p>Ford Focus</p>
+					</div>
+				</li>
+				<li class="type4">
+					<div>
+						<h4>до <strong>L</strong> 4660, <strong>H</strong> 1530</h4>
+						<h6>Например:</h6>
+						<p>Nissan Almera</p>
+						<p>Hyundai i30</p>
+						<p>Kia Cerato</p>
+						<p>BMW 3 серии</p>
+						<p>Ford Focus</p>
+					</div>
+				</li>
+				<li class="type5">
+					<div>
+						<h4>до <strong>L</strong> 4660, <strong>H</strong> 1530</h4>
+						<h6>Например:</h6>
+						<p>Nissan Almera</p>
+						<p>Hyundai i30</p>
+						<p>Kia Cerato</p>
+						<p>BMW 3 серии</p>
+						<p>Ford Focus</p>
+					</div>
+				</li>
+				<li class="type6">
+					<div>
+						<h4>до <strong>L</strong> 4660, <strong>H</strong> 1530</h4>
+						<h6>Например:</h6>
+						<p>Nissan Almera</p>
+						<p>Hyundai i30</p>
+						<p>Kia Cerato</p>
+						<p>BMW 3 серии</p>
+						<p>Ford Focus</p>
+					</div>
+				</li>
 			</ul>
 			<h5>Направление перевозки автомобиля:</h5>
 			<div class="from">

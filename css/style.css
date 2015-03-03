@@ -1,4 +1,3 @@
-/* Variables */
 /* Default */
 html {
   height: 100%;
@@ -237,12 +236,48 @@ button::-moz-focus-inner {
   z-index: 2;
   background: #616161;
 }
-.menu ul {
+.menu div {
+  position: relative;
   clear: both;
   overflow: hidden;
   max-width: 1600px;
   padding: 26px 20px 25px;
   margin: 0 auto;
+}
+.menu div > div {
+  position: absolute;
+  right: 0;
+  top: -12px;
+  display: none;
+}
+.menu div > div span {
+  float: left;
+  display: block;
+  height: 41px;
+  cursor: pointer;
+  margin: 0 0 0 79px;
+}
+.menu div > div span:first-child {
+  margin-left: 0;
+}
+.menu div > div span.icon1 {
+  width: 42px;
+  background: url('../img/menu_span_icon1.png') no-repeat center 5px;
+}
+.menu div > div span.icon2 {
+  width: 44px;
+  background: url('../img/menu_span_icon2.png') no-repeat center 7px;
+}
+.menu div > div span.icon3 {
+  width: 41px;
+  background: url('../img/menu_span_icon3.png') no-repeat center 4px;
+}
+.menu div > div span.icon4 {
+  width: 37px;
+  background: url('../img/menu_span_icon4.png') no-repeat center 5px;
+}
+.menu ul {
+  margin: 0;
 }
 .menu ul li {
   float: left;
@@ -266,6 +301,33 @@ button::-moz-focus-inner {
 .menu ul li a:hover {
   text-decoration: underline;
 }
+.menu .logo {
+  display: none;
+  position: absolute;
+  left: 20px;
+  top: 14px;
+}
+.desktop .menu {
+  min-width: 1000px;
+}
+.menu.fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  display: none;
+  width: 100%;
+  min-width: 1000px;
+}
+.menu.fixed ul {
+  margin-left: 159px;
+}
+.menu.fixed .logo {
+  display: block;
+}
+.menu.fixed.show {
+  display: block !important;
+}
 .introduction {
   position: relative;
   z-index: 2;
@@ -273,79 +335,6 @@ button::-moz-focus-inner {
   overflow: hidden;
   max-width: 1660px;
   margin: 0 auto;
-}
-.introduction .slider {
-  position: relative;
-  height: 471px;
-}
-.introduction .slider img {
-  position: absolute;
-  left: 0;
-  bottom: 33px;
-  width: 965px;
-  height: 404px;
-}
-.introduction .slider > div {
-  position: absolute;
-  right: 20px;
-  top: 89px;
-  z-index: 2;
-  text-align: right;
-}
-.introduction .slider > div h5 {
-  color: #636363;
-  font-size: 26px;
-  line-height: 32px;
-  font-weight: normal;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  padding: 0;
-  margin: 0 0 71px;
-}
-.introduction .slider > div h5 span {
-  color: #ee0b41;
-  font-size: 20px;
-  text-transform: none;
-  letter-spacing: 0;
-}
-.introduction .slider > div h5 strong {
-  font-size: 110px;
-  padding: 0 0 0 6px;
-}
-.introduction .slider > div h5 em {
-  display: block;
-  font-size: 20px;
-  line-height: 26px;
-  font-style: normal;
-  text-transform: none;
-  margin: 17px 50px 0 0;
-}
-.introduction .slider > div h6 {
-  color: #636363;
-  font-size: 26px;
-  line-height: 32px;
-  font-weight: normal;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  padding: 0;
-  margin: 0 97px 20px 0;
-}
-.introduction .slider > div h6 span {
-  display: block;
-  color: #ee0b41;
-  font-size: 20px;
-  text-transform: none;
-  letter-spacing: 0;
-  margin: 0 -26px 20px 0;
-}
-.introduction .slider > div h6 strong {
-  font-size: 74px;
-}
-.introduction .slider > div h6 em {
-  font-size: 20px;
-  line-height: 26px;
-  font-style: normal;
-  text-transform: none;
 }
 .introduction .calculator {
   position: relative;
@@ -403,7 +392,7 @@ button::-moz-focus-inner {
   margin: 0 9px 0 106px;
 }
 .introduction .calculator > li ul {
-  width: 390px;
+  width: 400px;
   margin: 0;
 }
 .introduction .calculator > li ul li {
@@ -423,6 +412,9 @@ button::-moz-focus-inner {
   width: 14px;
   height: 14px;
   background: url('../img/calc_li.png') no-repeat left top;
+}
+.introduction .calculator > li ul li > div {
+  display: none;
 }
 .introduction .calculator > li ul .active:before {
   background-position: 0 -14px;
@@ -474,13 +466,13 @@ button::-moz-focus-inner {
   position: relative;
   display: block;
   height: 34px;
-  margin: 0 32px;
+  margin: 0 31px;
   background: url('../img/input_bg.png') repeat-x top;
 }
 .introduction .calculator > li div p em:before {
   content: '';
   position: absolute;
-  left: -32px;
+  left: -31px;
   top: 0;
   width: 32px;
   height: 34px;
@@ -489,7 +481,7 @@ button::-moz-focus-inner {
 .introduction .calculator > li div p em:after {
   content: '';
   position: absolute;
-  right: -32px;
+  right: -31px;
   top: 0;
   width: 32px;
   height: 34px;
@@ -706,6 +698,12 @@ button::-moz-focus-inner {
   width: 100%;
   height: auto;
   margin: -30px 0 -40px -14px;
+}
+.process > div > ul > li.animated {
+  visibility: hidden;
+}
+.process > div > ul > li.animated.flipInX {
+  visibility: visible;
 }
 .processbg {
   display: none;
@@ -1245,6 +1243,17 @@ button::-moz-focus-inner {
     line-height: 20px;
   }
 }
+@media only screen and (min-width: 1160px) {
+  .desktop .menu.fixed div > div {
+    display: block;
+  }
+  .desktop .menu.fixed div > div span {
+    margin: 0 0 0 29px;
+  }
+  .desktop .menu.fixed div > div span:first-child {
+    margin-left: 0;
+  }
+}
 @media only screen and (min-width: 1260px) {
   .mobile .header > div {
     max-width: 1640px;
@@ -1293,82 +1302,11 @@ button::-moz-focus-inner {
   .desktop .header .city h5:after {
     top: 7px;
   }
-  .desktop .menu ul {
+  .desktop .menu div {
     padding: 26px 30px 25px;
   }
-  .desktop .introduction {
-    padding: 38px 0 21px;
-  }
-  .desktop .introduction .slider {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-  }
-  .desktop .introduction .slider img {
-    bottom: 24px;
-    width: 1241px;
-    height: 520px;
-  }
-  .desktop .introduction .slider > div {
-    position: absolute;
-    left: 20px;
-    right: auto;
-    top: 62px;
-    text-align: left;
-  }
-  .desktop .introduction .slider > div h5 {
-    margin: 0 0 50px;
-  }
-  .desktop .introduction .slider > div h5 em {
-    margin: 15px 0 0 261px;
-  }
-  .desktop .introduction .slider > div h6 {
-    margin: 0 0 0 230px;
-  }
-  .desktop .introduction .slider > div h6 span {
-    margin-left: -81px;
-  }
-  .desktop .introduction .calculator {
-    float: right;
-    width: 625px;
-    margin: 0 30px;
-  }
-  .desktop .introduction .calculator > li {
-    display: block;
-    width: 100%;
-    padding: 17px 15px 30px 35px;
-    margin: 0 0 19px;
-  }
-  .desktop .introduction .calculator > li ul {
-    margin-top: -16px;
-  }
-  .desktop .introduction .calculator > li div.from,
-  .desktop .introduction .calculator > li div.model,
-  .desktop .introduction .calculator > li div.phone {
-    display: inline-block;
-    width: 172px;
-    vertical-align: top;
-    padding: 0 0 0 101px;
-    margin-right: 43px;
-  }
-  .desktop .introduction .calculator > li div.to,
-  .desktop .introduction .calculator > li div.email {
-    display: inline-block;
-    width: 172px;
-    vertical-align: top;
-    padding: 0 0 0 82px;
-    margin-right: -10px;
-  }
-  .desktop .introduction .calculator > li h5.check {
-    display: inline-block;
-    width: 254px;
-    vertical-align: top;
-    padding: 0;
-    margin: 8px -10px 8px 0;
-  }
-  .desktop .introduction .calculator > li h5.check .checker {
-    margin-left: 0;
+  .desktop .menu .logo {
+    left: 30px;
   }
   .desktop .process {
     padding: 38px 30px 40px;
@@ -1413,54 +1351,17 @@ button::-moz-focus-inner {
     line-height: 20px;
     letter-spacing: 3px;
   }
-  .desktop .introduction .slider img {
-    bottom: 0;
-    width: 1440px;
-    height: 603px;
-  }
-  .desktop .introduction .slider > div {
-    position: absolute;
-    left: 20px;
-    right: auto;
-    top: 62px;
-    text-align: left;
-  }
-  .desktop .introduction .slider > div h5 em {
-    margin-left: 210px;
-  }
-  .desktop .introduction .slider > div h6 {
-    margin: -97px 0 0 310px;
-  }
-  .desktop .introduction .slider > div h6 span {
-    margin-left: 23px;
-  }
-  .desktop .introduction .calculator {
-    width: 704px;
-  }
-  .desktop .introduction .calculator > li {
-    padding: 17px 35px 30px 35px;
-  }
-  .desktop .introduction .calculator > li div.from,
-  .desktop .introduction .calculator > li div.model,
-  .desktop .introduction .calculator > li div.phone {
-    width: 192px;
-    padding: 0 0 0 106px;
-    margin-right: 52px;
-  }
-  .desktop .introduction .calculator > li div.to,
-  .desktop .introduction .calculator > li div.email {
-    width: 192px;
-    padding: 0 0 0 87px;
-    margin-right: -10px;
-  }
-  .desktop .introduction .calculator > li h5.check {
-    width: 254px;
-  }
   .desktop .clients .logos li:nth-child(5) {
     display: none;
   }
   .desktop .clients .reviews li:nth-child(2) {
     display: inline-block;
+  }
+  .desktop .menu div > div span {
+    margin: 0 0 0 79px;
+  }
+  .desktop .menu div > div span:first-child {
+    margin-left: 0;
   }
 }
 @media only screen and (min-width: 1580px) {
@@ -1476,43 +1377,6 @@ button::-moz-focus-inner {
   .desktop .header .city {
     margin-left: 47px;
   }
-  .desktop .introduction .calculator {
-    width: 755px;
-  }
-  .desktop .introduction .calculator > li {
-    padding: 17px 66px 30px 35px;
-  }
-  .desktop .introduction .calculator > li div.from,
-  .desktop .introduction .calculator > li div.model,
-  .desktop .introduction .calculator > li div.phone {
-    width: 202px;
-    padding: 0 0 0 106px;
-    margin-right: 52px;
-  }
-  .desktop .introduction .calculator > li div.to,
-  .desktop .introduction .calculator > li div.email {
-    width: 202px;
-    padding: 0 0 0 87px;
-    margin-right: -10px;
-  }
-  .desktop .introduction .calculator > li h5.check {
-    width: 254px;
-  }
-  .desktop .introduction .calculator > li ul {
-    width: 780px;
-  }
-  .desktop .introduction .calculator > li ul li {
-    width: 116px;
-    margin-right: 0;
-  }
-  .desktop .introduction .calculator > li ul .type1,
-  .desktop .introduction .calculator > li ul .type2 {
-    width: 106px;
-  }
-  .desktop .introduction .calculator > li ul .type3,
-  .desktop .introduction .calculator > li ul .type4 {
-    width: 111px;
-  }
   .desktop .latest:after,
   .desktop .inner:after {
     width: 493px;
@@ -1521,37 +1385,6 @@ button::-moz-focus-inner {
 @media only screen and (min-width: 1620px) {
   .desktop .clients .logos li:nth-child(5) {
     display: inline-block;
-  }
-}
-@media only screen and (min-width: 1660px) {
-  .desktop .introduction .slider img {
-    bottom: -4px;
-    width: 1555px;
-    height: 651px;
-  }
-  .desktop .introduction .slider > div {
-    position: absolute;
-    left: 20px;
-    right: auto;
-    top: 62px;
-    text-align: left;
-  }
-  .desktop .introduction .slider > div h5 {
-    display: inline-block;
-    margin: 0 7px 0 0;
-  }
-  .desktop .introduction .slider > div h5 em {
-    display: inline;
-    padding: 0 0 0 8px;
-    margin: 0;
-  }
-  .desktop .introduction .slider > div h6 {
-    display: inline-block;
-    vertical-align: top;
-    margin: 13px 0 0;
-  }
-  .desktop .introduction .slider > div h6 span {
-    margin: 0 0 10px;
   }
 }
 @media only screen and (min-width: 1420px) and (max-width: 1619px) {
@@ -2057,7 +1890,7 @@ button::-moz-focus-inner {
     width: 250px;
     background: #ffffff;
   }
-  .mobile .menu ul {
+  .mobile .menu div {
     padding: 2px 20px;
   }
   .mobile .menu ul li {
@@ -2076,55 +1909,6 @@ button::-moz-focus-inner {
   }
   .mobile .menu ul li:first-child a {
     border-top-width: 0;
-  }
-  .mobile .slider {
-    position: relative;
-    height: auto !important;
-    padding: 34px 0 12px;
-  }
-  .mobile .slider img {
-    position: relative;
-    bottom: auto;
-    width: 100%;
-    height: auto !important;
-  }
-  .mobile .slider > div {
-    right: 5%;
-    top: 36px;
-  }
-  .mobile .slider > div h5 {
-    font-size: 16px;
-    line-height: 22px;
-    letter-spacing: 1px;
-    margin: 0 0 49px;
-  }
-  .mobile .slider > div h5 span {
-    font-size: 12px;
-  }
-  .mobile .slider > div h5 strong {
-    font-size: 58px;
-  }
-  .mobile .slider > div h5 em {
-    font-size: 12px;
-    line-height: 16px;
-    margin: 3px 0 0;
-  }
-  .mobile .slider > div h6 {
-    font-size: 16px;
-    line-height: 22px;
-    letter-spacing: 1px;
-    margin: 0;
-  }
-  .mobile .slider > div h6 span {
-    font-size: 12px;
-    margin: 0 8px 4px 0;
-  }
-  .mobile .slider > div h6 strong {
-    font-size: 42px;
-  }
-  .mobile .slider > div h6 em {
-    font-size: 12px;
-    line-height: 16px;
   }
   .mobile .process {
     padding: 0;
@@ -2524,6 +2308,9 @@ button::-moz-focus-inner {
   height: 100%;
   background: url('../img/fade_bg.png') repeat;
 }
+.desktop.fade {
+  position: fixed;
+}
 .modal {
   display: none;
 }
@@ -2648,6 +2435,9 @@ button::-moz-focus-inner {
   width: 14px;
   height: 14px;
   background: url('../img/calc_li.png') no-repeat left top;
+}
+.modal.form ul li div {
+  display: none;
 }
 .modal.form ul .active:before {
   background-position: 0 -14px;
@@ -2931,6 +2721,20 @@ button::-moz-focus-inner {
 }
 .submenu ul li a:hover {
   text-decoration: underline;
+}
+.desktop .submenu {
+  min-width: 1000px;
+}
+.submenu.fixed {
+  position: fixed;
+  left: 0;
+  top: 67px;
+  z-index: 100;
+  display: none;
+  width: 100%;
+}
+.submenu.fixed.show {
+  display: block !important;
 }
 .inner {
   position: relative;
@@ -3919,5 +3723,253 @@ button::-moz-focus-inner {
   }
   .mobile .inner .benefits ul li:nth-child(2n+1) {
     margin-left: 0;
+  }
+}
+.autosize {
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  display: none;
+  z-index: 1020;
+  width: 301px;
+  height: 170px;
+  margin: 54px 0 0 -126px;
+  background: url('../img/autosize_bg.png') no-repeat left top;
+}
+.autosize > div {
+  position: absolute;
+  left: 90px;
+  top: 18px;
+  width: 120px;
+  color: #ffffff;
+}
+.autosize > div h4 {
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  padding: 0;
+  margin: 0 0 8px;
+}
+.autosize > div h6 {
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: normal;
+  padding: 0;
+  margin: 0 0 7px;
+}
+.autosize > div p {
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0;
+}
+.introduction {
+  width: 1000px;
+}
+.slider {
+  position: relative;
+  width: 1000px;
+  height: 471px;
+}
+.slider .prev,
+.slider .next {
+  display: none;
+}
+.slider .pagination {
+  position: absolute;
+  right: 125px;
+  bottom: 51px;
+  z-index: 100;
+  margin: 0;
+}
+.slider .pagination li {
+  float: left;
+}
+.slider .pagination li a {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url('../img/slider_pagination.png') no-repeat left top;
+}
+.slider .pagination li.current a {
+  background-position: 0 -20px;
+}
+.slider .temp {
+  display: none;
+}
+.slider .container,
+.slider .container > div > div,
+.slider .container > div > div > div {
+  position: relative;
+  clear: both;
+  overflow: hidden;
+  width: 1000px;
+  height: 471px;
+}
+.slider .container,
+.slider .container > div > div > div {
+  visibility: hidden;
+}
+.slider .container,
+.slider .container > div > div.loaded > div {
+  visibility: visible;
+}
+.slider .slide1 {
+  background: url('../pic/slide1_960.png') no-repeat left top;
+}
+.slider .slide2 {
+  background: url('../pic/slide2_960.png') no-repeat left top;
+}
+.slider .slide3 {
+  background: url('../pic/slide3_960.png') no-repeat left top;
+}
+.slider .slide4 {
+  background: url('../pic/slide4_960.png') no-repeat left top;
+}
+@media only screen and (min-width: 1018px) {
+  .desktop .introduction {
+    width: 1280px;
+    min-height: 837px;
+    padding: 38px 0 21px;
+  }
+  .desktop .introduction .calculator {
+    float: right;
+    width: 625px;
+    margin: 0 30px;
+  }
+  .desktop .introduction .calculator > li {
+    display: block;
+    width: 100%;
+    padding: 17px 15px 30px 35px;
+    margin: 0 0 19px;
+  }
+  .desktop .introduction .calculator > li ul {
+    margin-top: -16px;
+  }
+  .desktop .introduction .calculator > li div.from,
+  .desktop .introduction .calculator > li div.model,
+  .desktop .introduction .calculator > li div.phone {
+    display: inline-block;
+    width: 172px;
+    vertical-align: top;
+    padding: 0 0 0 101px;
+    margin-right: 43px;
+  }
+  .desktop .introduction .calculator > li div.to,
+  .desktop .introduction .calculator > li div.email {
+    display: inline-block;
+    width: 172px;
+    vertical-align: top;
+    padding: 0 0 0 82px;
+    margin-right: -10px;
+  }
+  .desktop .introduction .calculator > li h5.check {
+    display: inline-block;
+    width: 254px;
+    vertical-align: top;
+    padding: 0;
+    margin: 8px -10px 8px 0;
+  }
+  .desktop .introduction .calculator > li h5.check .checker {
+    margin-left: 0;
+  }
+  .desktop .slider {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1280px;
+    height: 896px;
+  }
+  .desktop .slider .pagination {
+    right: 676px;
+    bottom: 37px;
+  }
+  .desktop .slider .container,
+  .desktop .slider .container > div > div,
+  .desktop .slider .container > div > div > div {
+    width: 1280px;
+    height: 896px;
+  }
+  .desktop .slider .slide1 {
+    background: url('../pic/slide1_1280.png') no-repeat left top;
+  }
+  .desktop .slider .slide2 {
+    background: url('../pic/slide2_1280.png') no-repeat left top;
+  }
+  .desktop .slider .slide3 {
+    background: url('../pic/slide3_1280.png') no-repeat left top;
+  }
+  .desktop .slider .slide4 {
+    background: url('../pic/slide4_1280.png') no-repeat left top;
+  }
+}
+@media only screen and (min-width: 1298px) {
+  .desktop .introduction {
+    width: 1660px;
+    min-height: 740px;
+  }
+  .desktop .introduction .calculator {
+    width: 755px;
+  }
+  .desktop .introduction .calculator > li {
+    padding: 17px 66px 30px 35px;
+  }
+  .desktop .introduction .calculator > li div.from,
+  .desktop .introduction .calculator > li div.model,
+  .desktop .introduction .calculator > li div.phone {
+    width: 202px;
+    padding: 0 0 0 106px;
+    margin-right: 52px;
+  }
+  .desktop .introduction .calculator > li div.to,
+  .desktop .introduction .calculator > li div.email {
+    width: 202px;
+    padding: 0 0 0 87px;
+    margin-right: -10px;
+  }
+  .desktop .introduction .calculator > li h5.check {
+    width: 254px;
+  }
+  .desktop .introduction .calculator > li ul {
+    width: 780px;
+  }
+  .desktop .introduction .calculator > li ul li {
+    width: 116px;
+    margin-right: 0;
+  }
+  .desktop .introduction .calculator > li ul .type1,
+  .desktop .introduction .calculator > li ul .type2 {
+    width: 106px;
+  }
+  .desktop .introduction .calculator > li ul .type3,
+  .desktop .introduction .calculator > li ul .type4 {
+    width: 111px;
+  }
+  .desktop .slider {
+    width: 1660px;
+    height: 799px;
+  }
+  .desktop .slider .pagination {
+    right: 795px;
+    bottom: 39px;
+  }
+  .desktop .slider .container,
+  .desktop .slider .container > div > div,
+  .desktop .slider .container > div > div > div {
+    width: 1660px;
+    height: 799px;
+  }
+  .desktop .slider .slide1 {
+    background: url('../pic/slide1_1600.png') no-repeat left top;
+  }
+  .desktop .slider .slide2 {
+    background: url('../pic/slide2_1600.png') no-repeat left top;
+  }
+  .desktop .slider .slide3 {
+    background: url('../pic/slide3_1600.png') no-repeat left top;
+  }
+  .desktop .slider .slide4 {
+    background: url('../pic/slide4_1600.png') no-repeat left top;
   }
 }
