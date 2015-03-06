@@ -9,11 +9,14 @@
 	<link rel="stylesheet" type="text/css" href="./css/animate.css">
 	<link rel="stylesheet" type="text/css" href="./css/uniform.css">
 	<script type="text/javascript" src="./js/jquery.js"></script>
+	<script type="text/javascript" src="./js/drawdoughnutchart.js"></script>
 	<script type="text/javascript" src="./js/jquerymobile.js"></script>
+	<script type="text/javascript" src="./js/selectbox.js"></script>
 	<script type="text/javascript" src="./js/slides.js"></script>
 	<script type="text/javascript" src="./js/uniform.js"></script>
 	<script type="text/javascript" src="./js/dynamic.js"></script>
 </head>
+
 <body>
 	<div class="wrapper">
 		<div class="header">
@@ -66,16 +69,20 @@
 				<div class="container"></div>
 				<div class="temp">
 					<div>
-						<div class="animated slide1"></div>
+						<div class="slide1"></div>
 					</div>
 					<div>
-						<div class="animated slide2"></div>
+						<div class="slide2">
+							<!--<div class="core1">
+								<div class="chart"></div>
+							</div>-->
+						</div>
 					</div>
 					<div>
-						<div class="animated slide3"></div>
+						<div class="slide3"></div>
 					</div>
 					<div>
-						<div class="animated slide4"></div>
+						<div class="slide4"></div>
 					</div>
 				</div>
 			</div>
@@ -83,7 +90,7 @@
 				<li class="count">
 					<h3>Расчет стоимости перевозки авто</h3>
 					<h5>Тип автомобиля:</h5>
-					<ul>
+					<ul class="cartype">
 						<li class="type1">
 							<div>
 								<h4>до <strong>L</strong> 4660, <strong>H</strong> 1530</h4>
@@ -152,11 +159,11 @@
 						</li>
 					</ul>
 					<h5>Направление перевозки автомобиля:</h5>
-					<div class="from">
+					<div class="col1">
 						<h6>Откуда</h6>
 						<p><input type="text"><em></em></p>
 					</div>
-					<div class="to">
+					<div class="col2">
 						<h6>Куда</h6>
 						<p><input type="text"><em></em></p>
 					</div>
@@ -165,17 +172,39 @@
 				</li>
 				<li class="request">
 					<h3>Оставить заявку на перевозку</h3>
-					<div class="model">
-						<h6>Марка/модель авто</h6>
-						<p><input type="text"><em></em></p>
+					<div class="col1">
+						<h6>Марка авто</h6>
+						<p>
+							<select>
+								<option>OptionOptionOptionOptionOptionOptionOption</option>
+								<option>OptionOptionOptionOptionOptionOptionOption</option>
+								<option>OptionOptionOptionOptionOptionOptionOption</option>
+								<option>OptionOptionOptionOptionOptionOptionOption</option>
+								<option>OptionOptionOptionOptionOptionOptionOption</option>
+							</select>
+						</p>
 					</div>
-					<h5 class="check"><input type="checkbox"> Авто не на ходу</h5>
-					<h5>Предполагаемая дата отправки <span class="data"></span></h5>
-					<div class="from">
+					<div class="col2">
+						<h6>Модель</h6>
+						<p>
+							<select>
+								<option>Option 1</option>
+								<option>Option 2</option>
+								<option>Option 3</option>
+								<option>Option 4</option>
+								<option>Option 5</option>
+							</select>
+						</p>
+					</div>
+					<div class="more">
+						<h5 class="check"><input type="checkbox"> Авто не на ходу</h5>
+						<h5>Предполагаемая дата отправки <span class="data"></span> 12.04.2015</h5>
+					</div>
+					<div class="col1">
 						<h6>Откуда</h6>
 						<p><input type="text"><em></em></p>
 					</div>
-					<div class="to">
+					<div class="col2">
 						<h6>Куда</h6>
 						<p><input type="text"><em></em></p>
 					</div>
@@ -183,11 +212,11 @@
 						<h6>ФИО</h6>
 						<p><input type="text"><em></em></p>
 					</div>
-					<div class="phone">
+					<div class="col1">
 						<h6>Телефон</h6>
 						<p><input type="text"><em></em></p>
 					</div>
-					<div class="email">
+					<div class="col2">
 						<h6>E-mail</h6>
 						<p><input type="text"><em></em></p>
 					</div>
