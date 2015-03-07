@@ -68,11 +68,25 @@
 
     settings.beforeDraw.call($this);
 
+    if ( $('.slider .pagination li.current').index() == $('.slider .temp .slide2').parent().index() ) {
+      var borderSize = 10;
+      if ( $('.desktop').length > 0 && $(window).width() > 1000 ) {
+        var borderSize = 14;
+      }
+      if ( $('.desktop').length > 0 && $(window).width() > 1280 ) {
+        var borderSize = 15;
+      }
+    }
+    if ( $('.slider .pagination li.current').index() == $('.slider .temp .slide4').parent().index() ) {
+      var borderSize = 16;
+    }
+
     var $svg = $('<svg width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>').appendTo($this),
         $paths = [],
         easingFunction = animationOptions[settings.animationEasing],
         doughnutRadius = Min([H / 2,W / 2]) - settings.edgeOffset,
-        cutoutRadius = doughnutRadius * (settings.percentageInnerCutout / 100),
+        //cutoutRadius = doughnutRadius * (settings.percentageInnerCutout / 100),
+        cutoutRadius = doughnutRadius - borderSize,
         segmentTotal = 0;
 
     //Draw base doughnut
