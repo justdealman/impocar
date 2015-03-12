@@ -399,6 +399,50 @@ function autoPark() {
 		'min-height': $('.autopark table thead').outerHeight()-5+$('.autopark > div > div > div').outerHeight()+'px'
 	});
 }
+function faqNav() {
+	$(window).bind('scroll', function() {
+		var ft = $('.faq > div').offset().top-($('.menu').height()+$('.submenu').height()+20);
+		if ( $(document).scrollTop() > ft ) {
+			var ch = $(window).height()-($('.menu').height()+$('.submenu').height());
+			if ( $('.faq > ul').outerHeight() > ch-30 ) {
+				var difference = $('.faq > ul').outerHeight()-ch+50;
+				var ps = ($(document).scrollTop()-$('.faq > div').offset().top)/$('.faq > div').outerHeight();
+				console.log(ps);
+				if ( $(window).scrollTop() > $('.wrapper').height()-$(window).height()-$('.footer').height() ) {
+					$('.faq > ul').css({
+						'top': 'auto',
+						'bottom': '26px'
+					});
+				}
+				else {
+					$('.faq > ul').css({
+						'top': $(document).scrollTop()-ft+10-(difference*ps)+'px',
+						'bottom': 'auto'
+					});
+				}
+			}
+			else {
+				if ( $(window).scrollTop() > $('.wrapper').height()-($('.faq > div').offset().top+$('.faq > ul').outerHeight()-50) ) {
+					$('.faq > ul').css({
+						'top': 'auto',
+						'bottom': '26px'
+					});
+				}
+				else {
+					$('.faq > ul').css({
+						'top': $(document).scrollTop()-ft+10+'px',
+						'bottom': 'auto'
+					});
+				}
+			}
+		}
+		else {
+			$('.faq > ul').css({
+				'top': '10px'
+			});
+		}
+	});
+}
 $(document).ready(function() {
 	if ( !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 		$('body').addClass('desktop');
@@ -622,6 +666,9 @@ $(document).ready(function() {
 			$(this).next().removeClass('next');
 		}
 	);
+	if ( $('.faq').length > 0 && $('.desktop').length > 0 ) {
+		faqNav();
+	}
 });
 $(window).resize(function() {
 	if ( $('.wrapper .line').length > 0 ) {
@@ -659,6 +706,9 @@ $(window).resize(function() {
 	}
 	if ( $('.autopark').length > 0 ) {
 		autoPark();
+	}
+	if ( $('.faq').length > 0 && $('.desktop').length > 0 ) {
+		faqNav();
 	}
 });
 $(window).load(function() {

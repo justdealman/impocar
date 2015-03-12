@@ -3158,6 +3158,7 @@ button::-moz-focus-inner {
 		margin: 1px 0 45px;
 		span {
 			position: relative;
+			display: table;
 			padding: 0 0 15px;
 			&:after {
 				content: '';
@@ -3169,6 +3170,19 @@ button::-moz-focus-inner {
 				background: #000000;
 			}
 		}
+	}
+	button.play {
+		float: right;
+		width: 390px;
+		color: #ffffff;
+		.font(16px, 20px);
+		font-weight: bold;
+		letter-spacing: 2px;
+		cursor: pointer;
+		padding: 19px 10px 21px 40px;
+		margin: 5px 0 12px 60px;
+		background: #ee0b41 url('../img/play_icon.png') no-repeat 22px 14px;
+		.shadow(0 0 10px rgba(0,0,0,0.3));
 	}
 	> div {
 		margin: -10px 0 0;
@@ -3219,13 +3233,17 @@ button::-moz-focus-inner {
 			margin: 7px 0 20px 60px;
 		}
 	}
-	> ul {
+	> ul, div > ul {
+		clear: both;
+		overflow: hidden;
 		max-width: 1600px;
-		padding: 0 20px;
-		margin: 31px auto 4px;
+		text-align: center;
+		padding: 10px 20px;
+		margin: 21px auto -6px;
 		li {
 			display: inline-block;
 			width: 22%;
+			text-align: left;
 			vertical-align: top;
 			margin: 0 -3px 20px 4%;
 			&:nth-child(4n+1) {
@@ -3234,7 +3252,19 @@ button::-moz-focus-inner {
 			img {
 				width: 100%;
 				height: auto;
+				margin: 0 0 20px;
 				.shadow(0 0 10px rgba(0,0,0,0.3));
+			}
+		}
+	}
+	div > ul {
+		margin: -20px auto 0;
+		li {
+			img {
+				margin: 0 0 26px;
+			}
+			:last-child {
+				margin-bottom: 6px;
 			}
 		}
 	}
@@ -3625,6 +3655,9 @@ button::-moz-focus-inner {
 			}
 		}
 		.infoblock {
+			button.play {
+				margin: 5px 0 12px 40px;
+			}
 			> div {
 				padding: 0;
 				margin: -10px 0 6px;
@@ -3677,6 +3710,7 @@ button::-moz-focus-inner {
 				margin: 6px 0 20px 30px !important;
 			}
 			.proposal {
+				padding: 0 20px;
 				img {
 					margin: 6px 0 20px 30px;
 				}
@@ -3686,12 +3720,29 @@ button::-moz-focus-inner {
 				margin: -2px 0 0;
 				li {
 					width: 31%;
-					margin: 0 -3px 16px 3%;
+					margin: 0 -3px 8px 3%;
 				}
 				:nth-child(4n+1) {
 					margin-left: 3%;
 				}
 				:nth-child(3n+1) {
+					margin-left: 0;
+				}
+			}
+			> div > ul {
+				text-align: center;
+				margin: -2px 0 0;
+				li {
+					width: 48%;
+					margin: 0 -3px 12px 4%;
+					img {
+						margin: 0 0 6px;
+					}
+				}
+				:nth-child(4n+1) {
+					margin-left: 4%;
+				}
+				:nth-child(2n+1) {
 					margin-left: 0;
 				}
 			}
@@ -3793,6 +3844,11 @@ button::-moz-focus-inner {
 			}
 		}
 		.infoblock {
+			button.play {
+				float: none;
+				display: block;
+				margin: 5px auto 20px;
+			}
 			> div {
 				> div {
 					text-align: center;
@@ -3908,7 +3964,7 @@ button::-moz-focus-inner {
 			> ul {
 				li {
 					width: 48%;
-					margin: 0 -3px 16px 4%;
+					margin: 0 -3px 12px 4%;
 				}
 				&:nth-child(3n+1) {
 					margin-left: 4%;
