@@ -518,13 +518,24 @@ $(document).ready(function() {
 		$('.introduction .calculator li div h6').each(function() {
 			$(this).css({
 				'margin-top': -$(this).outerHeight()/2-1+'px'
-			})
+			});
 		})
 		$('.introduction .calculator li ul > li').bind('click', function() {
 			$(this).addClass('active').siblings().removeClass('active');
 		})
 		$('.introduction .calculator li ul > li:nth-child(1)').trigger('click');
 		$('input[type="checkbox"]').uniform();
+	}
+	if ( $('.inner .feedback').length ) {
+		$('.inner .feedback div h6').each(function() {
+			var mt = (34-$(this).outerHeight())/2-1;
+			if ( mt < -9.5 ) {
+				mt = -9.5;
+			}
+			$(this).css({
+				'top': mt+'px'
+			});
+		})
 	}
 	$('.modal.count ul.cartype li').bind('click', function() {
 		$(this).addClass('active').siblings().removeClass('active');
@@ -668,6 +679,9 @@ $(document).ready(function() {
 	);
 	if ( $('.faq').length > 0 && $('.desktop').length > 0 ) {
 		faqNav();
+	}
+	if ( $('.menu ul li.active').length > 0 ) {
+		$('.menu ul li.active').next().addClass('nextactive');
 	}
 });
 $(window).resize(function() {
