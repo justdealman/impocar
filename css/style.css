@@ -834,6 +834,13 @@ button::-moz-focus-inner {
   display: inline-block;
   vertical-align: middle;
 }
+.clients .logos li p {
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  margin: 10px 0 0;
+}
 .clients .reviews {
   float: right;
   margin: 0;
@@ -2171,18 +2178,15 @@ button::-moz-focus-inner {
   }
   .mobile .clients .logos {
     float: none;
-    padding: 9px 20px 17px;
-    margin: 0 !important;
+    padding: 19px 10px 17px;
+    margin: 0 0 -20px !important;
     background: #ffffff;
     -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
     -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
   }
   .mobile .clients .logos li {
-    margin-left: 46px;
-  }
-  .mobile .clients .logos li:first-child {
-    margin-left: 0;
+    margin: 0 7px 20px 10px !important;
   }
   .mobile .clients .logos li:nth-child(5) {
     display: inline-block;

@@ -167,6 +167,44 @@ function processLi() {
 		});
 	}
 }
+function clients() {
+	var max = 0;
+	$('.clients > div > div > *').each(function() {
+	    var h = $(this).outerHeight(); 
+	    max = h > max ? h : max;
+	});
+	$('.clients > div > div > *').each(function() {
+	    $(this).css({
+	    	'margin-top': (max-$(this).outerHeight())/2+'px'
+	    })
+	});
+	$('.clients .logos li').each(function() {
+	    $(this).find('p').css({
+	    	'width': $(this).find('img').attr('width')+'px'
+	    })
+	});
+	var clientsMax = $('.clients > div').width() - $('.clients .reviews').width()-40;
+	var clientsCurrent = $('.clients .logos').width();
+	var clientsTop = $('.clients .logos').height()-$('.clients .logos').height()*clientsMax/clientsCurrent;
+	if ( clientsMax < clientsCurrent && $('.desktop').length > 0 ) {
+		$('.clients .logos').css({
+			'zoom': clientsMax/clientsCurrent,
+			'-webkit-transform': 'translateY('+clientsTop+'px)',
+			'-moz-transform': 'translateY('+clientsTop+'px)',
+			'-o-transform': 'translateY('+clientsTop+'px)',
+			'transform': 'translateY('+clientsTop+'px)',
+		});
+	}
+	else {
+		$('.clients .logos').css({
+			'zoom': '1',
+			'-webkit-transform': 'translateY(0)',
+			'-moz-transform': 'translateY(0)',
+			'-o-transform': 'translateY(0)',
+			'transform': 'translateY(0)'
+		});
+	}
+}
 function mobile() {
 	var dropMenu = false;
 	if ( $(window).width() < 1000 ) {
@@ -490,16 +528,7 @@ $(document).ready(function() {
 		})
 	}
 	if ( $('.clients').length > 0 ) {
-		var max = 0;
-		$('.clients > div > div > *').each(function() {
-		    var h = $(this).outerHeight(); 
-		    max = h > max ? h : max;
-		});
-		$('.clients > div > div > *').each(function() {
-		    $(this).css({
-		    	'margin-top': (max-$(this).outerHeight())/2+'px'
-		    })
-		})
+		clients();
 	}
 	if ( $('.process').length > 0 ) {
 		$('.wrapper').append('<div class="processbg"><span></span></div>');
@@ -720,6 +749,9 @@ $(window).resize(function() {
 	}
 	if ( $('.autopark').length > 0 ) {
 		autoPark();
+	}
+	if ( $('.clients').length > 0 ) {
+		clients();
 	}
 	if ( $('.faq').length > 0 && $('.desktop').length > 0 ) {
 		faqNav();
