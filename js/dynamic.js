@@ -88,6 +88,9 @@
 	}
 	if ( $('.mobile').length > 0 ) {
 		zoomIntro = $(document).width()/1000;
+		$('.introduction').css({
+			'margin': '0'
+		});
 	}
 	$('.introduction').css({
 		'-webkit-transform': 'scale('+zoomIntro+')',

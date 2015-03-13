@@ -3214,7 +3214,7 @@ button::-moz-focus-inner {
 }
 .inner .contacts {
   max-width: 1600px;
-  text-align: center;
+  text-align: left;
   padding: 0 20px;
   margin: 0 auto 39px;
 }
@@ -3230,6 +3230,9 @@ button::-moz-focus-inner {
   -moz-box-shadow: border-box;
   -webkit-box-shadow: border-box;
   box-sizing: border-box;
+}
+.inner .contacts li.highlight {
+  border: 1px dashed #ee0b41;
 }
 .inner .contacts li img {
   float: left;
@@ -5021,3 +5024,18 @@ button::-moz-focus-inner {
 .desktop .inner .feedback {
   margin-top: -30px;
 }
+.ymaps-b-placemark:after {
+  content: '';
+  position: absolute;
+  right: 9px;
+  bottom: -6px;
+  width: 10px;
+  height: 10px;
+  background: url('../img/point.png') no-repeat left top;
+}
+.ymaps-b-placemark__content > * {
+  padding: 0 0 1px !important;
+}
+/*.ymaps-b-placemark__bottom {
+  z-index: 1;
+}*/
