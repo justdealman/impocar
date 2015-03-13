@@ -306,12 +306,6 @@ button::-moz-focus-inner {
 .menu ul li:first-child:before {
   display: none;
 }
-.menu ul li.next:before {
-  display: none;
-}
-.menu ul li:hover:before {
-  display: none;
-}
 .menu ul li a {
   color: #ffffff;
   text-decoration: none;
@@ -339,6 +333,14 @@ button::-moz-focus-inner {
 .desktop .menu ul li:first-child {
   margin-left: -14px;
 }
+.desktop .menu ul li.next:before,
+.desktop .menu ul li.nextactive:before {
+  display: none;
+}
+.desktop .menu ul li:hover:before,
+.desktop .menu ul li.active:before {
+  display: none;
+}
 .desktop .menu ul li:before {
   top: 28px;
 }
@@ -346,7 +348,8 @@ button::-moz-focus-inner {
   display: block;
   padding: 25px 14px 26px;
 }
-.desktop .menu ul li a:hover {
+.desktop .menu ul li a:hover,
+.desktop .menu ul li.active {
   text-decoration: none;
   background: #747474 url('../img/menu_hover.png') repeat-x top;
 }
@@ -2745,7 +2748,7 @@ button::-moz-focus-inner {
   clear: both;
   overflow: hidden;
   max-width: 1620px;
-  padding: 22px 0 9px 20px;
+  padding: 0 0 0 5px;
   margin: 0 auto;
 }
 .submenu ul li {
@@ -2755,14 +2758,16 @@ button::-moz-focus-inner {
   line-height: 14px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin: 0 30px 10px 0;
 }
 .submenu ul li a {
+  display: block;
   color: #ffffff;
   text-decoration: none;
+  padding: 22px 15px 19px;
 }
-.submenu ul li a:hover {
-  text-decoration: underline;
+.submenu ul li a:hover,
+.submenu ul li.active {
+  background: rgba(255, 255, 255, 0.1);
 }
 .desktop .submenu {
   min-width: 1000px;
@@ -3148,7 +3153,7 @@ button::-moz-focus-inner {
   margin: 7px 0 20px 60px;
 }
 .inner .infoblock > ul,
-.inner .infoblock div > ul {
+.inner .infoblock div > ul.cols {
   clear: both;
   overflow: hidden;
   max-width: 1600px;
@@ -3157,7 +3162,7 @@ button::-moz-focus-inner {
   margin: 21px auto -6px;
 }
 .inner .infoblock > ul li,
-.inner .infoblock div > ul li {
+.inner .infoblock div > ul.cols li {
   display: inline-block;
   width: 22%;
   text-align: left;
@@ -3165,11 +3170,11 @@ button::-moz-focus-inner {
   margin: 0 -3px 20px 4%;
 }
 .inner .infoblock > ul li:nth-child(4n+1),
-.inner .infoblock div > ul li:nth-child(4n+1) {
+.inner .infoblock div > ul.cols li:nth-child(4n+1) {
   margin-left: 0;
 }
 .inner .infoblock > ul li img,
-.inner .infoblock div > ul li img {
+.inner .infoblock div > ul.cols li img {
   width: 100%;
   height: auto;
   margin: 0 0 20px;
@@ -3177,13 +3182,13 @@ button::-moz-focus-inner {
   -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-.inner .infoblock div > ul {
+.inner .infoblock div > ul.cols {
   margin: -20px auto 0;
 }
-.inner .infoblock div > ul li img {
+.inner .infoblock div > ul.cols li img {
   margin: 0 0 26px;
 }
-.inner .infoblock div > ul li :last-child {
+.inner .infoblock div > ul.cols li :last-child {
   margin-bottom: 6px;
 }
 .inner .infoblock span.split {
@@ -3386,7 +3391,6 @@ button::-moz-focus-inner {
   }
   .desktop .submenu ul {
     max-width: 1630px;
-    padding: 22px 0 9px 30px;
   }
   .desktop .inner .hello {
     padding: 56px 30px 30px;
@@ -3425,13 +3429,16 @@ button::-moz-focus-inner {
 @media only screen and (max-device-width: 1000px) {
   .mobile .submenu ul {
     text-align: left;
-    padding: 16px 0 7px 20px;
+    padding: 0 0 0 5px;
   }
   .mobile .submenu ul li {
     display: inline-block;
     float: none;
     vertical-align: top;
-    margin: 0 17px 8px 0;
+    margin: 0;
+  }
+  .mobile .submenu ul li a {
+    padding: 10px 15px 10px;
   }
   .mobile .inner {
     padding-top: 36px;
@@ -3641,21 +3648,21 @@ button::-moz-focus-inner {
   .mobile .inner .infoblock > ul :nth-child(3n+1) {
     margin-left: 0;
   }
-  .mobile .inner .infoblock > div > ul {
+  .mobile .inner .infoblock > div > ul.cols {
     text-align: center;
     margin: -2px 0 0;
   }
-  .mobile .inner .infoblock > div > ul li {
+  .mobile .inner .infoblock > div > ul.cols li {
     width: 48%;
     margin: 0 -3px 12px 4%;
   }
-  .mobile .inner .infoblock > div > ul li img {
+  .mobile .inner .infoblock > div > ul.cols li img {
     margin: 0 0 6px;
   }
-  .mobile .inner .infoblock > div > ul :nth-child(4n+1) {
+  .mobile .inner .infoblock > div > ul.cols :nth-child(4n+1) {
     margin-left: 4%;
   }
-  .mobile .inner .infoblock > div > ul :nth-child(2n+1) {
+  .mobile .inner .infoblock > div > ul.cols :nth-child(2n+1) {
     margin-left: 0;
   }
   .mobile .inner .faq {
@@ -4911,4 +4918,102 @@ button::-moz-focus-inner {
     padding: 8px 21px 8px 20px;
     margin: 0 0 15px;
   }
+}
+.inner .feedback {
+  padding: 0 20px;
+  max-width: 500px;
+  text-align: center;
+  padding: 0 0 50px;
+  margin: 0 auto;
+}
+.inner .feedback div {
+  position: relative;
+  min-height: 34px;
+  text-align: left;
+  padding: 0 0 0 106px;
+  margin: 0 0 13px;
+}
+.inner .feedback div h6 {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 96px;
+  color: #000000;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+}
+.inner .feedback div p {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  margin: 0 -3px 0 0;
+}
+.inner .feedback div p em {
+  position: relative;
+  display: block;
+  height: 34px;
+  margin: 0 31px;
+  background: url('../img/input_bg.png') repeat-x top;
+}
+.inner .feedback div p em:before {
+  content: '';
+  position: absolute;
+  left: -31px;
+  top: 0;
+  width: 32px;
+  height: 34px;
+  background: url('../img/input_bg.png') no-repeat left -34px;
+}
+.inner .feedback div p em:after {
+  content: '';
+  position: absolute;
+  right: -31px;
+  top: 0;
+  width: 32px;
+  height: 34px;
+  background: url('../img/input_bg.png') no-repeat right -68px;
+}
+.inner .feedback div p input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  font-size: 14px;
+  padding: 8px 24px 10px;
+}
+.inner .feedback div p textarea {
+  z-index: 1;
+  width: 100%;
+  font-size: 14px;
+  padding: 6px 22px 8px;
+  border: 2px solid #ffffff;
+  -webkit-box-shadow: inset 0 0 9px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 0 9px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 9px rgba(0, 0, 0, 0.2);
+}
+.inner .feedback button {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 8px 33px 8px;
+  margin: 11px 32px -7px -2px;
+  background: #ee0b41;
+  border: 2px solid #ffffff;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+.desktop .inner .feedback {
+  margin-top: -30px;
 }
