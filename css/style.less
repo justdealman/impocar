@@ -34,7 +34,9 @@ body {
 	-webkit-tap-highlight-color: transparent;
 }
 .mobile {
+	max-width: 1000px;
 	overflow-x: hidden;
+	margin: 0 auto;
 }
 p {
 	text-indent:0;
@@ -133,6 +135,9 @@ button::-moz-focus-inner {
 .desktop .wrapper {
 	min-width: 1000px;
 }
+.mobile .wrapper {
+	max-width: 1000px;
+}
 .line {
 	display: none;
 	position: absolute;
@@ -140,6 +145,7 @@ button::-moz-focus-inner {
 	top: 0;
 	z-index: 1;
 	width: 2600px;
+	height: 10000px;
 	margin-left: -1300px;
 	background: url('../img/line_bg.png') no-repeat center top;
 }
@@ -334,7 +340,7 @@ button::-moz-focus-inner {
 		top: 14px;
 	}
 }
-.desktop .menu {
+.menu:not(.dropped) {
 	min-width: 1000px;
 	> div {
 		height: 16px;
@@ -929,7 +935,7 @@ button::-moz-focus-inner {
 	z-index: 2;
 	color: @color-white;
 	min-width: 480px;
-	margin: -185px 0 0;
+	margin: -185px auto 0;
 	background: #616161;
 	> div {
 		position: relative;
@@ -1028,6 +1034,9 @@ button::-moz-focus-inner {
 }
 .desktop .footer {
 	min-width: 1000px;
+}
+.mobile .footer {
+	max-width: 1000px;
 }
 	.desktop {
 		.process {
@@ -2490,8 +2499,10 @@ button::-moz-focus-inner {
 	position: absolute;
 	left: 0;
 	top: 0;
+	max-width: 1000px;
 	z-index: 1010;
 	width: 100%;
+	margin: 0 auto;
 	background: #ffffff;
 	-moz-box-shadow: border-box;
 	-webkit-box-shadow: border-box;
@@ -3511,7 +3522,6 @@ button::-moz-focus-inner {
 		}
 	}
 }
-@media only screen and (max-device-width : 1000px) {
 	.mobile .submenu {
 		ul {
 			text-align: left;
@@ -3760,7 +3770,11 @@ button::-moz-focus-inner {
 				}
 			}
 		}
-		.faq {
+	}
+
+
+		.mobile .faq {
+			max-width: 1600px;
 			padding: 0 20px 8px;
 			> ul {
 				display: none;
@@ -3835,9 +3849,7 @@ button::-moz-focus-inner {
 				}
 			}
 		}
-	}
-}
-@media only screen and (max-device-width : 700px) {
+@media only screen and (max-width : 700px) {
 	.mobile .inner {
 		.about {
 			text-align: center;
@@ -3953,7 +3965,7 @@ button::-moz-focus-inner {
 		}
 	}
 }
-@media only screen and (max-device-width : 640px) {
+@media only screen and (max-width : 640px) {
 	.mobile .inner {
 		.gallery {
 			margin: 0 auto;
@@ -3990,7 +4002,7 @@ button::-moz-focus-inner {
 	}
 }
 
-@media only screen and (max-device-width : 600px) {
+@media only screen and (max-width : 600px) {
 	.mobile .inner {
 		.benefits {
 			ul {
@@ -4685,12 +4697,14 @@ button::-moz-focus-inner {
 		}
 		> div {
 			position: relative;
-			z-index: 1;
+			z-index: 10;
 			max-width: 1600px;
 			color: @color-black;
 			padding: 0 20px;
 			margin: 0 auto;
 			table {
+				position: relative;
+				z-index: 10;
 				width: 73.5%;
 				margin: 0;
 				th {
@@ -4920,7 +4934,6 @@ button::-moz-focus-inner {
 		}
 	}
 }
-@media only screen and (max-device-width : 1000px) {
 	.mobile .inner {
 		.autopark {
 			padding: 0 0 50px !important;
@@ -4936,8 +4949,8 @@ button::-moz-focus-inner {
 					text-align: center;
 					img {
 						width: 22%;
-						margin: 0 -3px 0 4%;
-						margin-bottom: 16px;
+						height: auto;
+						margin: 0 -3px 16px 4%;
 						&:nth-child(4n+1) {
 							margin-left: 0;
 						}
@@ -4945,10 +4958,13 @@ button::-moz-focus-inner {
 				}
 			}
 			table {
+				position: relative;
+				z-index: 10;
 				width: 100%;
 				margin: 0 0 20px;
 				th {
 					.font(12px, 16px);
+					text-align: left;
 					letter-spacing: 0;
 					padding: 16px 0 12px 18px;
 				}
@@ -5021,15 +5037,15 @@ button::-moz-focus-inner {
 			}
 		}
 	}
-}
-@media only screen and (max-device-width : 700px) {
+
+@media only screen and (max-width : 700px) {
 	.mobile .inner {
 		.autopark {
 			> div {
 				> div > div {
 					img {
 						width: 31%;
-						margin: 0 -3px 0 3%;
+						margin: 0 -3px 12px 3%;
 						&:nth-child(4n+1) {
 							margin-left: 3%;
 						}
@@ -5167,4 +5183,41 @@ button::-moz-focus-inner {
 }
 /*.ymaps-b-placemark__bottom {
   z-index: 1;
+}*/
+/*
+@media only screen and (min-width: 1000px) {
+	.mobile {
+		h1 {
+			.font(40px, 46px);
+			margin-bottom: 42px;
+		}
+		.inner { 
+			.about {
+				p {
+					.font(24px, 28px);
+					margin: 0 0 28px;
+				}
+			}
+		}
+		.coop > li {
+			h3 {
+				.font(24px, 28px);
+				margin: 0 0 28px;
+			}
+			ul {
+				margin: 0 0 28px;
+				li {
+					.font(24px, 28px);
+					span:before {
+						top: 10px;
+						width: 10px;
+						height: 10px;
+					}
+				}
+			}
+			button {
+				.font(20px, 24px);
+			}
+		}
+	}
 }*/

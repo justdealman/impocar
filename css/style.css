@@ -15,7 +15,9 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 .mobile {
+  max-width: 1000px;
   overflow-x: hidden;
+  margin: 0 auto;
 }
 p {
   text-indent: 0;
@@ -116,6 +118,9 @@ button::-moz-focus-inner {
 .desktop .wrapper {
   min-width: 1000px;
 }
+.mobile .wrapper {
+  max-width: 1000px;
+}
 .line {
   display: none;
   position: absolute;
@@ -123,6 +128,7 @@ button::-moz-focus-inner {
   top: 0;
   z-index: 1;
   width: 2600px;
+  height: 10000px;
   margin-left: -1300px;
   background: url('../img/line_bg.png') no-repeat center top;
 }
@@ -320,36 +326,36 @@ button::-moz-focus-inner {
   left: 20px;
   top: 14px;
 }
-.desktop .menu {
+.menu:not(.dropped) {
   min-width: 1000px;
 }
-.desktop .menu > div {
+.menu:not(.dropped) > div {
   height: 16px;
 }
-.desktop .menu ul {
+.menu:not(.dropped) ul {
   margin-top: -25px;
   margin-bottom: -26px;
 }
-.desktop .menu ul li:first-child {
+.menu:not(.dropped) ul li:first-child {
   margin-left: -14px;
 }
-.desktop .menu ul li.next:before,
-.desktop .menu ul li.nextactive:before {
+.menu:not(.dropped) ul li.next:before,
+.menu:not(.dropped) ul li.nextactive:before {
   display: none;
 }
-.desktop .menu ul li:hover:before,
-.desktop .menu ul li.active:before {
+.menu:not(.dropped) ul li:hover:before,
+.menu:not(.dropped) ul li.active:before {
   display: none;
 }
-.desktop .menu ul li:before {
+.menu:not(.dropped) ul li:before {
   top: 28px;
 }
-.desktop .menu ul li a {
+.menu:not(.dropped) ul li a {
   display: block;
   padding: 25px 14px 26px;
 }
-.desktop .menu ul li a:hover,
-.desktop .menu ul li.active {
+.menu:not(.dropped) ul li a:hover,
+.menu:not(.dropped) ul li.active {
   text-decoration: none;
   background: #747474 url('../img/menu_hover.png') repeat-x top;
 }
@@ -949,7 +955,7 @@ button::-moz-focus-inner {
   z-index: 2;
   color: #ffffff;
   min-width: 480px;
-  margin: -185px 0 0;
+  margin: -185px auto 0;
   background: #616161;
 }
 .footer > div {
@@ -1055,6 +1061,9 @@ button::-moz-focus-inner {
 }
 .desktop .footer {
   min-width: 1000px;
+}
+.mobile .footer {
+  max-width: 1000px;
 }
 .desktop .process > div {
   display: block;
@@ -2379,8 +2388,10 @@ button::-moz-focus-inner {
   position: absolute;
   left: 0;
   top: 0;
+  max-width: 1000px;
   z-index: 1010;
   width: 100%;
+  margin: 0 auto;
   background: #ffffff;
   -moz-box-shadow: border-box;
   -webkit-box-shadow: border-box;
@@ -3227,6 +3238,10 @@ button::-moz-focus-inner {
   padding: 18px 20px 18px 138px;
   margin: 0 0 31px;
   border: 1px dashed #b4b4b4;
+  transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
   -moz-box-shadow: border-box;
   -webkit-box-shadow: border-box;
   box-sizing: border-box;
@@ -3433,314 +3448,313 @@ button::-moz-focus-inner {
     left: 30px;
   }
 }
-@media only screen and (max-device-width: 1000px) {
-  .mobile .submenu ul {
-    text-align: left;
-    padding: 0 0 0 5px;
-  }
-  .mobile .submenu ul li {
-    display: inline-block;
-    float: none;
-    vertical-align: top;
-    margin: 0;
-  }
-  .mobile .submenu ul li a {
-    padding: 10px 15px 10px;
-  }
-  .mobile .inner {
-    padding-top: 36px;
-  }
-  .mobile .inner h1 {
-    font-size: 24px;
-    line-height: 28px;
-    letter-spacing: 3px;
-    margin: 0 0 24px;
-  }
-  .mobile .inner .about {
-    padding-bottom: 2px;
-  }
-  .mobile .inner .about p {
-    font-size: 14px;
-    line-height: 22px;
-    margin: 0 0 22px;
-  }
-  .mobile .inner .about > div {
-    text-align: center;
-  }
-  .mobile .inner .about > div img {
-    float: none;
-    margin: 2px 34px 26px;
-  }
-  .mobile .inner .about > div p {
-    text-align: left;
-  }
-  .mobile .inner .about .img.right {
-    margin-left: 40px;
-  }
-  .mobile .inner .about .split {
-    margin: 9px 0 19px;
-  }
-  .mobile .inner .hello {
-    padding: 24px 20px 2px;
-  }
-  .mobile .inner .hello h5 {
-    font-size: 14px;
-    line-height: 22px;
-    font-weight: normal;
-    margin: 0 0 22px;
-  }
-  .mobile .inner .hello h2 {
-    font-size: 20px;
-    line-height: 24px;
-    letter-spacing: 2px;
-  }
-  .mobile .inner .hello h2:after {
-    height: 2px;
-  }
-  .mobile .inner .hello ul {
-    margin: 0 0 22px;
-  }
-  .mobile .inner .hello ul li {
-    font-size: 14px;
-    line-height: 22px;
-    font-weight: normal;
-  }
-  .mobile .inner .hello ul li:before {
-    top: 8px;
-  }
-  .mobile .inner .benefits {
-    padding: 23px 20px 25px;
-  }
-  .mobile .inner .benefits h2 {
-    font-size: 24px;
-    line-height: 28px;
-    letter-spacing: 3px;
-    margin: 0 0 24px;
-  }
-  .mobile .inner .benefits ul li {
-    min-height: 105px;
-    width: 31%;
-    margin-left: 0;
-    margin: 0 -3px 0 3%;
-  }
-  .mobile .inner .benefits ul li:nth-child(4n+1) {
-    margin-left: 3%;
-  }
-  .mobile .inner .benefits ul li:nth-child(3n+1) {
-    margin-left: 0;
-  }
-  .mobile .inner .benefits ul li h5 {
-    font-size: 75px;
-    line-height: 75px;
-  }
-  .mobile .inner .benefits ul li p {
-    font-size: 13px;
-    line-height: 16px;
-    padding: 10px 0 0;
-    margin: 36px 0 0;
-  }
-  .mobile .inner #map {
-    height: 321px;
-  }
-  .mobile .inner .contacts {
-    text-align: center;
-    padding: 0 10px;
-  }
-  .mobile .inner .contacts li {
-    display: inline-block;
-    text-align: left;
-    vertical-align: top;
-    margin: 0 7px 20px 10px !important;
-  }
-  .mobile .inner .gallery {
-    margin: 0 auto;
-  }
-  .mobile .inner .gallery > ul li {
-    margin: 0 -3px 6px 0;
-  }
-  .mobile .inner .gallery > ul li a {
-    font-size: 12px;
-    line-height: 16px;
-    padding: 4px 10px 5px;
-    margin: 0 10px;
-  }
-  .mobile .inner .gallery > ul li.active a:before {
-    left: -10px;
-    border-left: 10px solid transparent;
-    border-bottom: 25px solid #ee0b41;
-  }
-  .mobile .inner .gallery > ul li.active a:after {
-    right: -10px;
-    border-right: 10px solid transparent;
-    border-top: 25px solid #ee0b41;
-  }
-  .mobile .inner .gallery > div ul {
-    margin: 0 0 -10px;
-  }
-  .mobile .inner .gallery > div ul li {
-    width: 31%;
-    margin: 0 -3px 16px 3%;
-  }
-  .mobile .inner .gallery > div ul li:nth-child(4n+1) {
-    margin-left: 3%;
-  }
-  .mobile .inner .gallery > div ul li:nth-child(3n+1) {
-    margin-left: 0;
-  }
-  .mobile .inner .infoblock button.play {
-    margin: 5px 0 12px 40px;
-  }
-  .mobile .inner .infoblock > div {
-    padding: 0;
-    margin: -10px 0 6px;
-  }
-  .mobile .inner .infoblock > div > div {
-    margin: 0 0 -16px;
-  }
-  .mobile .inner .infoblock > div > div img {
-    margin: 6px 0 20px 30px;
-  }
-  .mobile .inner .infoblock > div > div:nth-child(2n) img {
-    margin: 6px 30px 20px 0;
-  }
-  .mobile .inner .infoblock .type2 > div img {
-    margin: 6px 30px 20px 0;
-  }
-  .mobile .inner .infoblock .type2 > div:nth-child(2n) img {
-    margin: 6px 0 20px 30px;
-  }
-  .mobile .inner .infoblock p {
-    font-size: 14px;
-    line-height: 22px;
-    margin: 0 0 22px;
-  }
-  .mobile .inner .infoblock ul {
-    margin: 0 0 22px;
-  }
-  .mobile .inner .infoblock ul li {
-    font-size: 14px;
-    line-height: 22px;
-  }
-  .mobile .inner .infoblock h3 {
-    line-height: 22px;
-    letter-spacing: 1px;
-    margin: 0 0 35px;
-  }
-  .mobile .inner .infoblock h3 span {
-    padding: 0 0 15px;
-  }
-  .mobile .inner .infoblock h3:after {
-    height: 2px;
-  }
-  .mobile .inner .infoblock img.icon {
-    margin: 6px 0 20px 30px !important;
-  }
-  .mobile .inner .infoblock .proposal {
-    padding: 0 20px;
-  }
-  .mobile .inner .infoblock .proposal img {
-    margin: 6px 0 20px 30px;
-  }
-  .mobile .inner .infoblock > ul {
-    text-align: center;
-    margin: -2px 0 0;
-  }
-  .mobile .inner .infoblock > ul li {
-    width: 31%;
-    margin: 0 -3px 8px 3%;
-  }
-  .mobile .inner .infoblock > ul :nth-child(4n+1) {
-    margin-left: 3%;
-  }
-  .mobile .inner .infoblock > ul :nth-child(3n+1) {
-    margin-left: 0;
-  }
-  .mobile .inner .infoblock > div > ul.cols {
-    text-align: center;
-    margin: -2px 0 0;
-  }
-  .mobile .inner .infoblock > div > ul.cols li {
-    width: 48%;
-    margin: 0 -3px 12px 4%;
-  }
-  .mobile .inner .infoblock > div > ul.cols li img {
-    margin: 0 0 6px;
-  }
-  .mobile .inner .infoblock > div > ul.cols :nth-child(4n+1) {
-    margin-left: 4%;
-  }
-  .mobile .inner .infoblock > div > ul.cols :nth-child(2n+1) {
-    margin-left: 0;
-  }
-  .mobile .inner .faq {
-    padding: 0 20px 8px;
-  }
-  .mobile .inner .faq > ul {
-    display: none;
-  }
-  .mobile .inner .faq > div > div > div {
-    display: none;
-    margin: -10px 0 -10px -10px;
-  }
-  .mobile .inner .faq > div > div:last-child > div {
-    margin-bottom: -18px;
-  }
-  .mobile .inner .faq > div > div.active > div {
-    display: block;
-  }
-  .mobile .inner .faq > div p {
-    font-size: 14px;
-    line-height: 22px;
-    margin: 0 0 22px;
-  }
-  .mobile .inner .faq > div ul {
-    margin: 0 0 22px;
-  }
-  .mobile .inner .faq > div ul li {
-    font-size: 14px;
-    line-height: 22px;
-  }
-  .mobile .inner .faq > div h3 {
-    line-height: 22px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    padding: 0;
-    margin: 0 0 15px;
-  }
-  .mobile .inner .faq > div h3 span {
-    color: #033763;
-    cursor: pointer;
-    border-bottom: 1px dashed #033763;
-  }
-  .mobile .inner .faq > div h3:after {
-    display: none;
-  }
-  .mobile .inner .faq > div .split {
-    margin: 9px 0 19px;
-  }
-  .mobile .inner .faq > div img.left {
-    margin: 7px 30px 16px 0;
-  }
-  .mobile .inner .faq > div img.right {
-    margin: 7px 0 16px 30px;
-  }
-  .mobile .inner .faq > div img.icon {
-    width: 20%;
-    margin: 7px 0 16px 30px;
-  }
-  .mobile .inner .faq > div .example {
-    padding: 0 0 0 95px;
-    margin: 0 0 22px;
-  }
-  .mobile .inner .faq > div .example h6 {
-    letter-spacing: 2px;
-  }
-  .mobile .inner .faq > div .example p span {
-    letter-spacing: 1px;
-    padding-left: 3px;
-  }
+.mobile .submenu ul {
+  text-align: left;
+  padding: 0 0 0 5px;
 }
-@media only screen and (max-device-width: 700px) {
+.mobile .submenu ul li {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+  margin: 0;
+}
+.mobile .submenu ul li a {
+  padding: 10px 15px 10px;
+}
+.mobile .inner {
+  padding-top: 36px;
+}
+.mobile .inner h1 {
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 3px;
+  margin: 0 0 24px;
+}
+.mobile .inner .about {
+  padding-bottom: 2px;
+}
+.mobile .inner .about p {
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0 0 22px;
+}
+.mobile .inner .about > div {
+  text-align: center;
+}
+.mobile .inner .about > div img {
+  float: none;
+  margin: 2px 34px 26px;
+}
+.mobile .inner .about > div p {
+  text-align: left;
+}
+.mobile .inner .about .img.right {
+  margin-left: 40px;
+}
+.mobile .inner .about .split {
+  margin: 9px 0 19px;
+}
+.mobile .inner .hello {
+  padding: 24px 20px 2px;
+}
+.mobile .inner .hello h5 {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: normal;
+  margin: 0 0 22px;
+}
+.mobile .inner .hello h2 {
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 2px;
+}
+.mobile .inner .hello h2:after {
+  height: 2px;
+}
+.mobile .inner .hello ul {
+  margin: 0 0 22px;
+}
+.mobile .inner .hello ul li {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: normal;
+}
+.mobile .inner .hello ul li:before {
+  top: 8px;
+}
+.mobile .inner .benefits {
+  padding: 23px 20px 25px;
+}
+.mobile .inner .benefits h2 {
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 3px;
+  margin: 0 0 24px;
+}
+.mobile .inner .benefits ul li {
+  min-height: 105px;
+  width: 31%;
+  margin-left: 0;
+  margin: 0 -3px 0 3%;
+}
+.mobile .inner .benefits ul li:nth-child(4n+1) {
+  margin-left: 3%;
+}
+.mobile .inner .benefits ul li:nth-child(3n+1) {
+  margin-left: 0;
+}
+.mobile .inner .benefits ul li h5 {
+  font-size: 75px;
+  line-height: 75px;
+}
+.mobile .inner .benefits ul li p {
+  font-size: 13px;
+  line-height: 16px;
+  padding: 10px 0 0;
+  margin: 36px 0 0;
+}
+.mobile .inner #map {
+  height: 321px;
+}
+.mobile .inner .contacts {
+  text-align: center;
+  padding: 0 10px;
+}
+.mobile .inner .contacts li {
+  display: inline-block;
+  text-align: left;
+  vertical-align: top;
+  margin: 0 7px 20px 10px !important;
+}
+.mobile .inner .gallery {
+  margin: 0 auto;
+}
+.mobile .inner .gallery > ul li {
+  margin: 0 -3px 6px 0;
+}
+.mobile .inner .gallery > ul li a {
+  font-size: 12px;
+  line-height: 16px;
+  padding: 4px 10px 5px;
+  margin: 0 10px;
+}
+.mobile .inner .gallery > ul li.active a:before {
+  left: -10px;
+  border-left: 10px solid transparent;
+  border-bottom: 25px solid #ee0b41;
+}
+.mobile .inner .gallery > ul li.active a:after {
+  right: -10px;
+  border-right: 10px solid transparent;
+  border-top: 25px solid #ee0b41;
+}
+.mobile .inner .gallery > div ul {
+  margin: 0 0 -10px;
+}
+.mobile .inner .gallery > div ul li {
+  width: 31%;
+  margin: 0 -3px 16px 3%;
+}
+.mobile .inner .gallery > div ul li:nth-child(4n+1) {
+  margin-left: 3%;
+}
+.mobile .inner .gallery > div ul li:nth-child(3n+1) {
+  margin-left: 0;
+}
+.mobile .inner .infoblock button.play {
+  margin: 5px 0 12px 40px;
+}
+.mobile .inner .infoblock > div {
+  padding: 0;
+  margin: -10px 0 6px;
+}
+.mobile .inner .infoblock > div > div {
+  margin: 0 0 -16px;
+}
+.mobile .inner .infoblock > div > div img {
+  margin: 6px 0 20px 30px;
+}
+.mobile .inner .infoblock > div > div:nth-child(2n) img {
+  margin: 6px 30px 20px 0;
+}
+.mobile .inner .infoblock .type2 > div img {
+  margin: 6px 30px 20px 0;
+}
+.mobile .inner .infoblock .type2 > div:nth-child(2n) img {
+  margin: 6px 0 20px 30px;
+}
+.mobile .inner .infoblock p {
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0 0 22px;
+}
+.mobile .inner .infoblock ul {
+  margin: 0 0 22px;
+}
+.mobile .inner .infoblock ul li {
+  font-size: 14px;
+  line-height: 22px;
+}
+.mobile .inner .infoblock h3 {
+  line-height: 22px;
+  letter-spacing: 1px;
+  margin: 0 0 35px;
+}
+.mobile .inner .infoblock h3 span {
+  padding: 0 0 15px;
+}
+.mobile .inner .infoblock h3:after {
+  height: 2px;
+}
+.mobile .inner .infoblock img.icon {
+  margin: 6px 0 20px 30px !important;
+}
+.mobile .inner .infoblock .proposal {
+  padding: 0 20px;
+}
+.mobile .inner .infoblock .proposal img {
+  margin: 6px 0 20px 30px;
+}
+.mobile .inner .infoblock > ul {
+  text-align: center;
+  margin: -2px 0 0;
+}
+.mobile .inner .infoblock > ul li {
+  width: 31%;
+  margin: 0 -3px 8px 3%;
+}
+.mobile .inner .infoblock > ul :nth-child(4n+1) {
+  margin-left: 3%;
+}
+.mobile .inner .infoblock > ul :nth-child(3n+1) {
+  margin-left: 0;
+}
+.mobile .inner .infoblock > div > ul.cols {
+  text-align: center;
+  margin: -2px 0 0;
+}
+.mobile .inner .infoblock > div > ul.cols li {
+  width: 48%;
+  margin: 0 -3px 12px 4%;
+}
+.mobile .inner .infoblock > div > ul.cols li img {
+  margin: 0 0 6px;
+}
+.mobile .inner .infoblock > div > ul.cols :nth-child(4n+1) {
+  margin-left: 4%;
+}
+.mobile .inner .infoblock > div > ul.cols :nth-child(2n+1) {
+  margin-left: 0;
+}
+.mobile .faq {
+  max-width: 1600px;
+  padding: 0 20px 8px;
+}
+.mobile .faq > ul {
+  display: none;
+}
+.mobile .faq > div > div > div {
+  display: none;
+  margin: -10px 0 -10px -10px;
+}
+.mobile .faq > div > div:last-child > div {
+  margin-bottom: -18px;
+}
+.mobile .faq > div > div.active > div {
+  display: block;
+}
+.mobile .faq > div p {
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0 0 22px;
+}
+.mobile .faq > div ul {
+  margin: 0 0 22px;
+}
+.mobile .faq > div ul li {
+  font-size: 14px;
+  line-height: 22px;
+}
+.mobile .faq > div h3 {
+  line-height: 22px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 0;
+  margin: 0 0 15px;
+}
+.mobile .faq > div h3 span {
+  color: #033763;
+  cursor: pointer;
+  border-bottom: 1px dashed #033763;
+}
+.mobile .faq > div h3:after {
+  display: none;
+}
+.mobile .faq > div .split {
+  margin: 9px 0 19px;
+}
+.mobile .faq > div img.left {
+  margin: 7px 30px 16px 0;
+}
+.mobile .faq > div img.right {
+  margin: 7px 0 16px 30px;
+}
+.mobile .faq > div img.icon {
+  width: 20%;
+  margin: 7px 0 16px 30px;
+}
+.mobile .faq > div .example {
+  padding: 0 0 0 95px;
+  margin: 0 0 22px;
+}
+.mobile .faq > div .example h6 {
+  letter-spacing: 2px;
+}
+.mobile .faq > div .example p span {
+  letter-spacing: 1px;
+  padding-left: 3px;
+}
+@media only screen and (max-width: 700px) {
   .mobile .inner .about {
     text-align: center;
   }
@@ -3833,7 +3847,7 @@ button::-moz-focus-inner {
     margin: 1px auto 21px;
   }
 }
-@media only screen and (max-device-width: 640px) {
+@media only screen and (max-width: 640px) {
   .mobile .inner .gallery {
     margin: 0 auto;
   }
@@ -3861,7 +3875,7 @@ button::-moz-focus-inner {
     margin-left: 0;
   }
 }
-@media only screen and (max-device-width: 600px) {
+@media only screen and (max-width: 600px) {
   .mobile .inner .benefits ul li {
     width: 47%;
     margin-left: 0;
@@ -4556,13 +4570,15 @@ button::-moz-focus-inner {
 }
 .inner .autopark > div > div {
   position: relative;
-  z-index: 1;
+  z-index: 10;
   max-width: 1600px;
   color: #000000;
   padding: 0 20px;
   margin: 0 auto;
 }
 .inner .autopark > div > div table {
+  position: relative;
+  z-index: 10;
   width: 73.5%;
   margin: 0;
 }
@@ -4796,110 +4812,111 @@ button::-moz-focus-inner {
     padding: 13px 30px 15px;
   }
 }
-@media only screen and (max-device-width: 1000px) {
-  .mobile .inner .autopark {
-    padding: 0 0 50px !important;
-    margin: 28px 0 0;
-  }
-  .mobile .inner .autopark > div {
-    padding: 0 20px;
-  }
-  .mobile .inner .autopark > div > div > div {
-    position: relative;
-    top: 0 !important;
-    right: auto;
-    width: auto;
-    height: auto;
-    text-align: center;
-  }
-  .mobile .inner .autopark > div > div > div img {
-    width: 22%;
-    margin: 0 -3px 0 4%;
-    margin-bottom: 16px;
-  }
-  .mobile .inner .autopark > div > div > div img:nth-child(4n+1) {
-    margin-left: 0;
-  }
-  .mobile .inner .autopark table {
-    width: 100%;
-    margin: 0 0 20px;
-  }
-  .mobile .inner .autopark table th {
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0;
-    padding: 16px 0 12px 18px;
-  }
-  .mobile .inner .autopark table td {
-    font-size: 12px;
-    line-height: 16px;
-    padding: 5px 0 5px 18px;
-  }
-  .mobile .inner .autopark table td:first-child {
-    padding-top: 5px;
-  }
-  .mobile .inner .docs {
-    padding: 0 0 50px !important;
-  }
-  .mobile .inner .docs li div {
-    padding: 15px 20px 18px;
-  }
-  .mobile .inner .docs li div h5 {
-    padding: 0 0 0 56px;
-  }
-  .mobile .inner .docs li div h5 img {
-    margin: -8px 0 -11px -56px;
-  }
-  .mobile .inner .coop {
-    padding: 0 0 18px;
-  }
-  .mobile .inner .coop > li {
-    padding: 10px 20px 10px 360px;
-  }
-  .mobile .inner .coop > li img {
-    margin: 6px 0 8px -340px;
-  }
-  .mobile .inner .coop > li ul {
-    margin: 0 0 15px;
-  }
-  .mobile .inner .coop > li ul li {
-    font-size: 14px;
-    line-height: 22px;
-  }
-  .mobile .inner .coop > li h3 {
-    line-height: 22px;
-    letter-spacing: 1px;
-    margin: 0 0 31px;
-  }
-  .mobile .inner .coop > li h3 span {
-    padding: 0 0 15px;
-  }
-  .mobile .inner .coop > li h3:after {
-    height: 2px;
-  }
-  .mobile .inner .coop > li button {
-    padding: 8px 21px 8px 20px;
-    margin: 0 0 15px;
-  }
-  .mobile .inner .list {
-    padding: 0 0 40px;
-  }
-  .mobile .inner .list li h5 {
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0;
-    padding: 19px 20px 22px;
-  }
-  .mobile .inner .list li p {
-    font-size: 12px;
-    line-height: 18px;
-    padding: 11px 20px 13px;
-  }
+.mobile .inner .autopark {
+  padding: 0 0 50px !important;
+  margin: 28px 0 0;
 }
-@media only screen and (max-device-width: 700px) {
+.mobile .inner .autopark > div {
+  padding: 0 20px;
+}
+.mobile .inner .autopark > div > div > div {
+  position: relative;
+  top: 0 !important;
+  right: auto;
+  width: auto;
+  height: auto;
+  text-align: center;
+}
+.mobile .inner .autopark > div > div > div img {
+  width: 22%;
+  height: auto;
+  margin: 0 -3px 16px 4%;
+}
+.mobile .inner .autopark > div > div > div img:nth-child(4n+1) {
+  margin-left: 0;
+}
+.mobile .inner .autopark table {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  margin: 0 0 20px;
+}
+.mobile .inner .autopark table th {
+  font-size: 12px;
+  line-height: 16px;
+  text-align: left;
+  letter-spacing: 0;
+  padding: 16px 0 12px 18px;
+}
+.mobile .inner .autopark table td {
+  font-size: 12px;
+  line-height: 16px;
+  padding: 5px 0 5px 18px;
+}
+.mobile .inner .autopark table td:first-child {
+  padding-top: 5px;
+}
+.mobile .inner .docs {
+  padding: 0 0 50px !important;
+}
+.mobile .inner .docs li div {
+  padding: 15px 20px 18px;
+}
+.mobile .inner .docs li div h5 {
+  padding: 0 0 0 56px;
+}
+.mobile .inner .docs li div h5 img {
+  margin: -8px 0 -11px -56px;
+}
+.mobile .inner .coop {
+  padding: 0 0 18px;
+}
+.mobile .inner .coop > li {
+  padding: 10px 20px 10px 360px;
+}
+.mobile .inner .coop > li img {
+  margin: 6px 0 8px -340px;
+}
+.mobile .inner .coop > li ul {
+  margin: 0 0 15px;
+}
+.mobile .inner .coop > li ul li {
+  font-size: 14px;
+  line-height: 22px;
+}
+.mobile .inner .coop > li h3 {
+  line-height: 22px;
+  letter-spacing: 1px;
+  margin: 0 0 31px;
+}
+.mobile .inner .coop > li h3 span {
+  padding: 0 0 15px;
+}
+.mobile .inner .coop > li h3:after {
+  height: 2px;
+}
+.mobile .inner .coop > li button {
+  padding: 8px 21px 8px 20px;
+  margin: 0 0 15px;
+}
+.mobile .inner .list {
+  padding: 0 0 40px;
+}
+.mobile .inner .list li h5 {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  padding: 19px 20px 22px;
+}
+.mobile .inner .list li p {
+  font-size: 12px;
+  line-height: 18px;
+  padding: 11px 20px 13px;
+}
+@media only screen and (max-width: 700px) {
   .mobile .inner .autopark > div > div > div img {
     width: 31%;
-    margin: 0 -3px 0 3%;
+    margin: 0 -3px 12px 3%;
   }
   .mobile .inner .autopark > div > div > div img:nth-child(4n+1) {
     margin-left: 3%;
@@ -5038,4 +5055,41 @@ button::-moz-focus-inner {
 }
 /*.ymaps-b-placemark__bottom {
   z-index: 1;
+}*/
+/*
+@media only screen and (min-width: 1000px) {
+  .mobile {
+    h1 {
+      .font(40px, 46px);
+      margin-bottom: 42px;
+    }
+    .inner { 
+      .about {
+        p {
+          .font(24px, 28px);
+          margin: 0 0 28px;
+        }
+      }
+    }
+    .coop > li {
+      h3 {
+        .font(24px, 28px);
+        margin: 0 0 28px;
+      }
+      ul {
+        margin: 0 0 28px;
+        li {
+          .font(24px, 28px);
+          span:before {
+            top: 10px;
+            width: 10px;
+            height: 10px;
+          }
+        }
+      }
+      button {
+        .font(20px, 24px);
+      }
+    }
+  }
 }*/

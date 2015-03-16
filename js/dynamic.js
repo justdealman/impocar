@@ -88,11 +88,15 @@
 	}
 	if ( $('.mobile').length > 0 ) {
 		zoomIntro = $(document).width()/1000;
-		$('.introduction').css({
-			'margin': '0'
-		});
+		if ( zoomIntro > 1 ) {
+			zoomIntro = 1;
+		}
 	}
 	$('.introduction').css({
+		'zoom': zoomIntro,
+		'margin-bottom': '0'
+	});
+	/*$('.introduction').css({
 		'-webkit-transform': 'scale('+zoomIntro+')',
 		'-webkit-transform-origin': 'left top',
 		'-moz-transform': 'scale('+zoomIntro+')',
@@ -100,7 +104,7 @@
 		'transform': 'scale('+zoomIntro+')',
 		'transform-origin': 'left top',
 		'margin-bottom': -($('.introduction').height()-($('.introduction').height()*zoomIntro))+'px'
-	});
+	});*/
 	if ( $('.mobile').length > 0 ) {
 		$('.slider').bind('swiperight', function() {
 			$('.slider .prev').trigger('click');
@@ -109,11 +113,6 @@
 			$('.slider .next').trigger('click');
 		});
 	}
-}
-function lineSize() {
-	$('.wrapper .line').css({
-		'height': $('.wrapper').height()+'px'
-	});
 }
 function processBg() {
 	$('.processbg').css({
@@ -129,30 +128,49 @@ function processBg() {
 			if ( $(window).width() >= 1281 ) {
 				zoomIntro = $(window).width()/1660;
 			}
-			if ( zoomIntro > 1 ) {
-				zoomIntro = 1;
-			}
-			if ( $(window).width() <= 1000 ) {
+			if ( zoomIntro > 1 || $(window).width() <= 1000 ) {
 				zoomIntro = 1;
 			}
 		}
 		if ( $('.mobile').length > 0 ) {
 			zoomIntro = $(window).width()/1000;
+			if ( zoomIntro > 1 ) {
+				zoomIntro = 1;
+			}
 		}
+	}
+	if ( $('.mobile').length > 0 ) {
+		$('.processbg').css({
+			'top': $('.introduction').height()*zoomIntro+$('.header').height()+$('.menu').height()+'px',
+			'height': $('.process').outerHeight()+'px'
+		});
+		$('.processbg span').css({
+			'margin-right': -790+(($('.introduction').height()*zoomIntro+$('.header').height()+$('.menu').height())*0.531)+'px'
+		});
+	}
+	else {
 		$('.processbg').css({
 			'top': $('.process').offset().top-$('.introduction').height()+$('.introduction').height()*zoomIntro+'px',
 			'height': $('.process').outerHeight()+'px'
 		});
+		$('.processbg span').css({
+			'margin-right': -790+(($('.process').offset().top-$('.introduction').height()+$('.introduction').height()*zoomIntro)*0.531)+'px'
+		});
 	}
-	$('.processbg span').css({
-		'margin-right': -790+(($('.process').offset().top-$('.introduction').height()+$('.introduction').height()*zoomIntro)*0.531)+'px'
-	});
 }
 function helloBg() {
-	$('.hellobg').css({
-		'top': $('.hello').offset().top+'px',
-		'height': $('.hello').outerHeight()+'px'
-	});
+	if ( $('.mobile').length > 0 && $(window).width() > 1000 ) {
+		$('.hellobg').css({
+			'top': $('.hello').offset().top/($(window).width()/1000)+'px',
+			'height': $('.hello').outerHeight()+'px'
+		});
+	}
+	else {
+		$('.hellobg').css({
+			'top': $('.hello').offset().top+'px',
+			'height': $('.hello').outerHeight()+'px'
+		});
+	}
 }
 function processUl() {
 	var max = 0;
@@ -164,7 +182,7 @@ function processUl() {
 }
 function processLi() {
 	var prLi = $('.process > div > ul > li');
-	if ( $(window).width() >= 1000 ) {
+	if ( $('.process > div').width() >= 1000 ) {
 		prLi.css({
 			'margin-left': (($('.process > div').width())-prLi.width()*5)/4+'px'
 		});
@@ -408,7 +426,7 @@ function desktop() {
 	});
 }
 function contactsWidth() {
-	if ( $(window).width() >= 1400 ) {
+	if ( $('.wrapper').width() >= 1400 ) {
 		$('.inner .contacts li').css({
 			'margin-right': Math.floor(($('.inner .contacts').width()-424*3)/2)-3+'px',
 			'margin-left': '0'
@@ -417,7 +435,7 @@ function contactsWidth() {
 			'margin-right': '-3px'
 		});
 	}
-	if ( $(window).width() < 1400 ) {
+	if ( $('.wrapper').width() < 1400 ) {
 		$('.inner .contacts li').css({
 			'margin-right': Math.floor(($('.inner .contacts').width()-424*2)/4)-3+'px',
 			'margin-left': Math.floor(($('.inner .contacts').width()-424*2)/4)-3+'px'
@@ -484,12 +502,30 @@ function faqNav() {
 		}
 	});
 }
+function bodyZoom() {
+	var bodyZoom = $(window).width()/1000;
+	if ( $(window).width() > 1000 ) {
+		$('body').css({
+			'zoom': bodyZoom,
+			'margin': '0'
+		});
+	}
+	else {
+		$('body').css({
+			'zoom': '1',
+			'margin': '0'
+		});
+	}
+}
 $(document).ready(function() {
 	if ( !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 		$('body').addClass('desktop');
 	}
 	else {
 		$('body').addClass('mobile');
+	}
+	if ( $('.mobile').length > 0  ) {
+		bodyZoom();
 	}
 	bh = 0;
 	if ( $('.desktop').length > 0 ) {
@@ -524,7 +560,6 @@ $(document).ready(function() {
 		})
 	});
 	$('.wrapper').append('<div class="line"></div>');
-	lineSize();
 	if ( $('.inner').length > 0 ) {
 		$('div.line').css({
 			'opacity': '0.15'
@@ -543,7 +578,7 @@ $(document).ready(function() {
 			$(this).append('<span>'+eval($(this).index()+1)+'</span>');
 		})
 	}
-	if ( !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && $('.process').length > 0 ) {
+	if ( $(window).width() > 1000 && $('.process').length > 0 ) {
 		processLi();
 	}
 	if ( $('.introduction').length ) {
@@ -600,8 +635,6 @@ $(document).ready(function() {
 		$('.faq').css({
 			'min-height': $('.faq').children('ul').outerHeight()+24+'px'
 		});
-	}
-	if ( $('.faq').length > 0 && $(window).width() < 1000 ) {
 		$('.mobile .inner .faq > div h3 span').bind('click', function() {
 			$(this).parent().parent().toggleClass('active');
 			return false;
@@ -701,7 +734,7 @@ $(document).ready(function() {
 		$('.autopark > div').prepend('<span class="titlebg"></span>');
 		autoPark();
 	}
-	$('.desktop .menu ul li').hover(
+	$('.menu:not(.dropped) ul li').hover(
 		function() {
 			$(this).next().addClass('next');
 		},
@@ -717,9 +750,6 @@ $(document).ready(function() {
 	}
 });
 $(window).resize(function() {
-	if ( $('.wrapper .line').length > 0 ) {
-		lineSize();
-	}
 	if ( $('.process').length > 0 ) {
 		processBg();
 	}
@@ -759,6 +789,9 @@ $(window).resize(function() {
 	if ( $('.faq').length > 0 && $('.desktop').length > 0 ) {
 		faqNav();
 	}
+	if ( $('.mobile').length > 0  ) {
+		bodyZoom();
+	}
 });
 $(window).load(function() {
 	if ( $('.process').length > 0 ) {
@@ -767,11 +800,13 @@ $(window).load(function() {
 	if ( $('.inner .hello').length > 0 ) {
 		helloBg();
 	}
-	lineSize();
 	if ( $('.slider').length > 0 ) {
 		slider();
 	}
 	if ( $('.autopark').length > 0 ) {
 		autoPark();
+	}
+	if ( $('.mobile').length > 0  ) {
+		bodyZoom();
 	}
 });
