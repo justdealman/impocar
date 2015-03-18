@@ -2709,13 +2709,20 @@ button::-moz-focus-inner {
 }
 .modal.citysel ul li {
   display: inline-block;
-  width: 25%;
+  width: 20%;
   vertical-align: top;
-  margin: 0 -3px 0 12.5%;
+  margin: 0 -6px 0 6.6%;
   white-space: nowrap;
 }
 .modal.citysel ul li:first-child {
   margin-left: 0;
+}
+.modal.citysel ul li h5 {
+  color: #ee0b41;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 2px 3px 4px 2px;
+  margin: 0;
 }
 .modal.citysel ul li p {
   margin: 0;
@@ -2729,8 +2736,15 @@ button::-moz-focus-inner {
   cursor: pointer;
   padding: 2px 3px 4px 2px;
 }
+.modal.citysel .temp {
+  display: none;
+}
+.desktop .modal.citysel {
+  width: 840px;
+  margin-left: -420px;
+}
 .desktop .modal.citysel ul {
-  padding-top: 20px;
+  padding-top: 0;
   margin-bottom: -13px;
 }
 .desktop .modal.citysel ul li span:hover {
@@ -2752,6 +2766,15 @@ button::-moz-focus-inner {
   right: -13px;
   border-right: 13px solid transparent;
   border-top: 24px solid #ee0b41;
+}
+.mobile .modal.citysel ul li {
+  display: inline-block;
+  width: 29%;
+  vertical-align: top;
+  margin: 0 -6px 0 6.5%;
+}
+.mobile .modal.citysel ul li:first-child {
+  margin-left: 0;
 }
 /* Inner */
 .submenu {
@@ -2947,9 +2970,9 @@ button::-moz-focus-inner {
   position: relative;
   min-height: 105px;
   display: inline-block;
-  width: 23%;
+  width: 25%;
   vertical-align: top;
-  margin: 0 -3px 43px 2%;
+  margin: 0 -6px 43px 0;
 }
 .inner .benefits ul li h5 {
   position: absolute;
@@ -2967,7 +2990,7 @@ button::-moz-focus-inner {
   font-size: 14px;
   line-height: 20px;
   padding: 14px 0 0;
-  margin: 40px 0 0;
+  margin: 40px 30px 0 0;
 }
 .inner .benefits ul li p:before {
   content: '';
@@ -3533,15 +3556,9 @@ button::-moz-focus-inner {
 }
 .mobile .inner .benefits ul li {
   min-height: 105px;
-  width: 31%;
+  width: 33%;
   margin-left: 0;
-  margin: 0 -3px 0 3%;
-}
-.mobile .inner .benefits ul li:nth-child(4n+1) {
-  margin-left: 3%;
-}
-.mobile .inner .benefits ul li:nth-child(3n+1) {
-  margin-left: 0;
+  margin: 0 -6px 0 0;
 }
 .mobile .inner .benefits ul li h5 {
   font-size: 75px;
@@ -3551,7 +3568,7 @@ button::-moz-focus-inner {
   font-size: 13px;
   line-height: 16px;
   padding: 10px 0 0;
-  margin: 36px 0 0;
+  margin: 36px 20px 0 0;
 }
 .mobile .inner #map {
   height: 321px;
@@ -3877,15 +3894,8 @@ button::-moz-focus-inner {
 }
 @media only screen and (max-width: 600px) {
   .mobile .inner .benefits ul li {
-    width: 47%;
-    margin-left: 0;
-    margin: 0 -3px 0 6%;
-  }
-  .mobile .inner .benefits ul li:nth-child(3n+1) {
-    margin-left: 6%;
-  }
-  .mobile .inner .benefits ul li:nth-child(2n+1) {
-    margin-left: 0;
+    width: 50%;
+    margin: 0 -6px 30px 0;
   }
 }
 .autosize {
@@ -5093,3 +5103,21 @@ button::-moz-focus-inner {
     }
   }
 }*/
+#ui-datepicker-div {
+  width: 200px;
+  background: #fff;
+  border: 1px dashed #b4b4b4;
+  padding: 25px;
+  display: none;
+  margin: 35px 0 0;
+}
+.ui-datepicker-calendar {
+  width: 100%;
+  text-align: center;
+}
+.ui-icon-circle-triangle-w {
+  padding-right: 40px;
+}
+.ui-datepicker-title {
+  padding: 10px 0;
+}

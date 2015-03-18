@@ -7,10 +7,13 @@
 	<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 	<link rel="stylesheet" type="text/css" href="./css/animate.css">
+	<link rel="stylesheet" type="text/css" href="./fancybox/style.css">
 	<link rel="stylesheet" type="text/css" href="./css/uniform.css">
 	<script type="text/javascript" src="./js/jquery.js"></script>
+	<script type="text/javascript" src="./js/jquery-ui.js"></script>
 	<script type="text/javascript" src="./js/jquerymobile.js"></script>
 	<script type="text/javascript" src="./js/drawdoughnutchart.js"></script>
+	<script type="text/javascript" src="./fancybox/script.js"></script>
 	<script type="text/javascript" src="./js/selectbox.js"></script>
 	<script type="text/javascript" src="./js/slides.js"></script>
 	<script type="text/javascript" src="./js/uniform.js"></script>
@@ -218,7 +221,7 @@
 					</div>
 					<div class="more">
 						<h5 class="check"><input type="checkbox"> Авто не на ходу</h5>
-						<h5>Предполагаемая дата отправки <span class="data"></span> 12.04.2015</h5>
+						<h5>Предполагаемая дата отправки <input type="text" id="date" style="height:40px; display: none"> <span class="data"></span>  12.04.2015</h5>
 					</div>
 					<div class="col1">
 						<h6>Откуда</h6>
@@ -572,43 +575,102 @@
 				<button class="submit">Да</button>
 			</div>
 			<h3>Выберите город</h3>
-			<ul>
-				<li>
-					<p><span>Архангельск</span></p>
-					<p><span>Астрахань</span></p>
-					<p><span>Барнаул</span></p>
-					<p><span>Белгород</span></p>
-					<p><span>Брянск</span></p>
-					<p><span>Волгоград</span></p>
-					<p><span>Воронеж</span></p>
-					<p><span>Екатеринбург</span></p>
-					<p><span>Иркутск</span></p>
-					<p><span>Казань</span></p>
-				</li>
-				<li>
-					<p><span>Красноярск</span></p>
-					<p><span>Кызыл</span></p>
-					<p><span>Москва</span></p>
-					<p><span>Мурманск</span></p>
-					<p><span>Нижний Новгород</span></p>
-					<p><span>Новосибирск</span></p>
-					<p><span>Омск</span></p>
-					<p><span>Орел</span></p>
-					<p><span>Пенза</span></p>
-					<p><span>Пермь</span></p>
-				</li>
-				<li>
-					<p><span>Ростов-на-Дону</span></p>
-					<p><span>Самара</span></p>
-					<p><span>Санкт-Петербург</span></p>
-					<p><span>Саратов</span></p>
-					<p><span>Смоленск</span></p>
-					<p><span>Тюмень</span></p>
-					<p><span>Уфа</span></p>
-					<p><span>Челябинск</span></p>
-					<p><span>Чита</span></p>
-				</li>
-			</ul>
+			<div class="temp">
+				<h5>A</h5>
+				<p><span>Абакан</span></p>
+				<p><span>Архангельск</span></p>
+				<h5>Б</h5>
+				<p><span>Барнаул</span></p>
+				<p><span>Белгород</span></p>
+				<p><span>Благовещенск</span></p>
+				<p><span>Братск</span></p>
+				<p><span>Брянск</span></p>
+				<h5>В</h5>
+				<p><span>Великий Новгород</span></p>
+				<p><span>Владивосток</span></p>
+				<p><span>Владимир</span></p>
+				<p><span>Волгоград</span></p>
+				<p><span>Вологда</span></p>
+				<p><span>Воронеж</span></p>
+				<h5>Е</h5>
+				<p><span>Екатеринбург (восток)</span></p>
+				<p><span>Екатеринбург (запад)</span></p>
+				<h5>И</h5>
+				<p><span>Иваново</span></p>
+				<p><span>Ижевск</span></p>
+				<p><span>Иркутск</span></p>
+				<h5>Й</h5>
+				<p><span>Йошкар-Ола</span></p>
+				<h5>К</h5>
+				<p><span>Казань</span></p>
+				<p><span>Калуга</span></p>
+				<p><span>Кемерово</span></p>
+				<p><span>Киров</span></p>
+				<p><span>Комсомольск-на-Амуре</span></p>
+				<p><span>Кострома</span></p>
+				<p><span>Краснодар</span></p>
+				<p><span>Красноярск</span></p>
+				<p><span>Курган</span></p>
+				<p><span>Курск</span></p>
+				<h5>Л</h5>
+				<p><span>Липецк</span></p>
+				<h5>М</h5>
+				<p><span>Магнитогорск</span></p>
+				<p><span>Москва (север)</span></p>
+				<p><span>Москва (юг)</span></p>
+				<h5>Н</h5>
+				<p><span>Набережные Челны</span></p>
+				<p><span>Нижневартовск</span></p>
+				<p><span>Нижний Новгород</span></p>
+				<p><span>Нижний Тагил</span></p>
+				<p><span>Новокузнецк</span></p>
+				<p><span>Новороссийск</span></p>
+				<p><span>Новосибирск</span></p></span></p>
+				<h5>О</h5>
+				<p><span>Омск</span></p>
+				<p><span>Орёл</span></p>
+				<p><span>Оренбург</span></p>
+				<p><span>Орск</span></p>
+				<h5>П</h5>
+				<p><span>Пенза</span></p>
+				<p><span>Пермь</span></p>
+				<p><span>Петрозаводск</span></p>
+				<p><span>Псков</span></p>
+				<h5>Р</h5>
+				<p><span>Ростов-на-Дону</span></p>
+				<p><span>Рязань</span></p>
+				<h5>С</h5>
+				<p><span>Самара</span></p>
+				<p><span>Санкт-Петербург</span></p>
+				<p><span>Саранск</span></p>
+				<p><span>Саратов</span></p>
+				<p><span>Смоленск</span></p>
+				<p><span>Сочи</span></p>
+				<p><span>Ставрополь</span></p>
+				<p><span>Стерлитамак</span></p>
+				<p><span>Сургут</span></p>
+				<p><span>Сыктывкар</span></p>
+				<h5>Т</h5>
+				<p><span>Тамбов</span></p>
+				<p><span>Тверь</span></p>
+				<p><span>Тольятти</span></p>
+				<p><span>Томск</span></p>
+				<p><span>Тула</span></p>
+				<p><span>Тюмень</span></p>
+				<h5>У</h5>
+				<p><span>Улан-Удэ</span></p>
+				<p><span>Ульяновск</span></p>
+				<p><span>Уфа</span></p>
+				<h5>Х</h5>
+				<p><span>Хабаровск</span></p>
+				<h5>Ч</h5>
+				<p><span>Чебоксары</span></p>
+				<p><span>Челябинск</span></p>
+				<p><span>Череповец</span></p>
+				<p><span>Чита</span></p>
+				<h5>Я</h5>
+				<p><span>Ярославль</span></p>
+			</div>
 		</div>
 	</div>
 </body>
