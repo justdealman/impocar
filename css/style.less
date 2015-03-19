@@ -4076,6 +4076,7 @@ button::-moz-focus-inner {
 	width: 1000px;
 }
 .slider {
+	display: none;
 	position: relative;
 	width: 1000px;
 	height: 471px;
@@ -4294,6 +4295,18 @@ button::-moz-focus-inner {
 			background: url('../pic/slide4_picture.png') no-repeat left top;
 		}
 	}
+}
+.desktop .slider {
+	display: block;
+}
+.intromobile {
+	display: none;
+	width: 1000px;
+	height: 471px;
+	background: url('../pic/slide1_960.png') no-repeat left top;
+}
+.mobile .intromobile {
+	display: block;
 }
 @media only screen and (min-width : 1018px) {
 	.desktop {
