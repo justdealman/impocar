@@ -86,16 +86,10 @@ function slider() {
 			zoomIntro = 1;
 		}
 	}
-	/*if ( $('.mobile').length > 0 ) {
-		zoomIntro = $(document).width()/1000;
-		if ( zoomIntro > 1 ) {
-			zoomIntro = 1;
-		}
-	}
 	$('.introduction').css({
 		'zoom': zoomIntro,
 		'margin-bottom': '0'
-	});*/
+	});
 	/*$('.introduction').css({
 		'-webkit-transform': 'scale('+zoomIntro+')',
 		'-webkit-transform-origin': 'left top',
