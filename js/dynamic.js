@@ -316,7 +316,7 @@ function mobile() {
 		for ( var i = 0; i < cols; i++ ) {
 			$('.modal.citysel ul').append('<li></li>');
 			for ( var j = 1; j<= colContent; j++ ) {
-				$('.modal.citysel .temp > :nth-child('+eval(i*colContent+j)+')').clone().appendTo('.modal.citysel ul li:nth-child('+eval(i+1)+')');
+				$('.modal.citysel .temp > :nth-child('+eval(i*colContent+j)+')').clone().appendTo('.modal.citysel ul li:nth-of-type('+eval(i+1)+')');
 			}
 		}
 		$('.modal.citysel ul li').each(function() {
