@@ -601,7 +601,7 @@ button::-moz-focus-inner {
   margin: 0 0 19px;
 }
 .desktop .process {
-  padding-top: 93px;
+  padding-top: 93px !important;
 }
 .desktop .process h2 {
   position: absolute;
@@ -4186,7 +4186,8 @@ button::-moz-focus-inner {
 @media only screen and (min-width: 1018px) {
   .desktop .introduction {
     width: 1280px;
-    min-height: 837px;
+    /*min-height: 837px;*/
+    min-height: 931px;
     padding: 38px 0 21px;
   }
   .desktop .introduction .calculator {
@@ -4340,7 +4341,8 @@ button::-moz-focus-inner {
 @media only screen and (min-width: 1298px) {
   .desktop .introduction {
     width: 1660px;
-    min-height: 740px;
+    /*min-height: 740px;*/
+    min-height: 834px;
   }
   .desktop .introduction .calculator {
     width: 755px;
@@ -4508,6 +4510,8 @@ button::-moz-focus-inner {
   background: url('../img/input_bg.png') no-repeat right -68px;
 }
 .selectbox .select .text {
+  position: relative;
+  z-index: 10;
   display: block;
   height: 17px !important;
   font-size: 14px;
