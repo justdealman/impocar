@@ -12,7 +12,6 @@ function slider() {
 		var current = $('.slider#'+id+' .slides_control > div:nth-child('+eval($('.slider .pagination li.current').index()+1)+')');
 		if ( current.children('div').attr('class') == 'slide2') {
 			current.find('.animation').empty().html(current.find('.hidden').html());
-			setTimeout(function() {
 				current.find('.animation .core1 .chart').drawDoughnutChart([
 					{ value: 350, color:'#c5c6c6' },
 					{ value: 10, color:'#ee0b41' }
@@ -21,8 +20,6 @@ function slider() {
 				setTimeout(function() {
 					current.find('.animation .core1 .tip').addClass('complete');
 				}, 1000);
-			}, 0);
-			setTimeout(function() {
 				current.find('.animation .core2 .chart').drawDoughnutChart([
 					{ value: 318, color:'#c5c6c6' },
 					{ value: 42, color:'#ee0b41' }
@@ -31,8 +28,6 @@ function slider() {
 				setTimeout(function() {
 					current.find('.animation .core2 .tip').addClass('complete');
 				}, 1000);
-			}, 1000);
-			setTimeout(function() {
 				current.find('.animation .core3 .chart').drawDoughnutChart([
 					{ value: 360, color:'#ee0b41' }
 				]);
@@ -40,19 +35,18 @@ function slider() {
 				setTimeout(function() {
 					current.find('.animation .core3 .tip').addClass('complete');
 				}, 1000);
-			}, 2000);
 		}
 		if ( current.children('div').attr('class') == 'slide4') {
 			current.find('.animation').empty().html(current.find('.hidden').html());
-			setTimeout(function() {
+
 				current.find('.animation .core1 .chart').drawDoughnutChart([
 					{ value: 360, color:'#ee0b41' }
 				]);
 				current.find('.animation .core1.grow').addClass('complete');
 				setTimeout(function() {
 					current.find('.animation .core1 .tip').addClass('complete');
-				}, 1000);
-			}, 0);
+				}, 0);
+
 		}
 	}
 	$('.slider').slides({
